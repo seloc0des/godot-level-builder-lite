@@ -1,0 +1,3220 @@
+[gd_scene format=3 uid="uid://divxqitg6jia8"]
+
+[ext_resource type="PackedScene" path="res://demo/demo_level.tscn" id="1_ejpb2"]
+[ext_resource type="Script" uid="uid://d442cyw2s13g" path="res://addons/level_builder/runtime/test_player.gd" id="2_2hc77"]
+[ext_resource type="PackedScene" path="res://addons/level_builder/greybox/floor_4x4.tscn" id="3_bw68r"]
+[ext_resource type="PackedScene" path="res://addons/level_builder/greybox/wall_4x2.tscn" id="4_c1rvo"]
+[ext_resource type="PackedScene" path="res://addons/level_builder/greybox/platform_2x2.tscn" id="5_3scpy"]
+[ext_resource type="PackedScene" path="res://addons/level_builder/greybox/crate_1.tscn" id="6_r213c"]
+[ext_resource type="PackedScene" path="res://addons/level_builder/greybox/pillar_3.tscn" id="7_qs5ya"]
+[ext_resource type="PackedScene" path="res://addons/level_builder/greybox/debris_1.tscn" id="8_78xuk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pf01y"]
+albedo_color = Color(0.42, 0.44, 0.42, 1)
+roughness = 0.95
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_65ioy"]
+material = SubResource("StandardMaterial3D_pf01y")
+size = Vector2(152, 200)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w8ne8"]
+size = Vector3(152, 1, 200)
+
+[node name="LBTestRun_SafeToDelete" type="Node3D" unique_id=945241487]
+
+[node name="DemoLevel" parent="." unique_id=986801290 instance=ExtResource("1_ejpb2")]
+
+[node name="TestPlayer" type="CharacterBody3D" parent="." unique_id=1689001669]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+script = ExtResource("2_2hc77")
+
+[node name="Geometry" type="Node3D" parent="." unique_id=1908026860]
+
+[node name="Generated" type="Node3D" parent="Geometry" unique_id=1295217590]
+metadata/lb_gen_seed = 1
+metadata/lb_gen_scope = 2
+metadata/lb_kit = "greybox"
+metadata/lb_palette = "lived_in"
+
+[node name="Terrain" type="StaticBody3D" parent="Geometry/Generated" unique_id=2144190071]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56, 0, 88)
+collision_mask = 0
+
+[node name="TerrainMesh" type="MeshInstance3D" parent="Geometry/Generated/Terrain" unique_id=1068150252]
+mesh = SubResource("PlaneMesh_65ioy")
+
+[node name="TerrainShape" type="CollisionShape3D" parent="Geometry/Generated/Terrain" unique_id=164147384]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_w8ne8")
+
+[node name="POI_0_Plot" type="Node3D" parent="Geometry/Generated" unique_id=1484625262]
+metadata/lb_unit_id = "POI_0_Plot"
+metadata/lb_unit_kind = "pad"
+metadata/lb_unit_layer = "ground"
+metadata/lb_unit_type = "outpost"
+metadata/lb_rect = Rect2i(2, 6, 7, 12)
+metadata/lb_base_y = 0.0
+metadata/lb_walls = false
+metadata/lb_seed = 896602295
+metadata/lb_poi_layer = "poi_0"
+metadata/lb_cells = [Vector2i(2, 6), Vector2i(3, 6), Vector2i(4, 6), Vector2i(5, 6), Vector2i(6, 6), Vector2i(7, 6), Vector2i(8, 6), Vector2i(2, 7), Vector2i(8, 7), Vector2i(2, 8), Vector2i(8, 8), Vector2i(2, 9), Vector2i(6, 9), Vector2i(7, 9), Vector2i(8, 9), Vector2i(2, 10), Vector2i(6, 10), Vector2i(7, 10), Vector2i(8, 10), Vector2i(2, 11), Vector2i(4, 11), Vector2i(5, 11), Vector2i(6, 11), Vector2i(7, 11), Vector2i(8, 11), Vector2i(2, 12), Vector2i(7, 12), Vector2i(8, 12), Vector2i(2, 13), Vector2i(7, 13), Vector2i(8, 13), Vector2i(2, 14), Vector2i(7, 14), Vector2i(8, 14), Vector2i(2, 15), Vector2i(7, 15), Vector2i(8, 15), Vector2i(2, 16), Vector2i(7, 16), Vector2i(8, 16), Vector2i(2, 17), Vector2i(3, 17), Vector2i(4, 17), Vector2i(5, 17), Vector2i(6, 17), Vector2i(7, 17), Vector2i(8, 17)]
+
+[node name="Floor_2_6" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=1555342217 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 26)
+collision_mask = 0
+
+[node name="Floor_3_6" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=1816949286 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 26)
+collision_mask = 0
+
+[node name="Floor_4_6" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=1190204143 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 26)
+collision_mask = 0
+
+[node name="Floor_5_6" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=151859481 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 26)
+collision_mask = 0
+
+[node name="Floor_6_6" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=1344356837 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 26)
+collision_mask = 0
+
+[node name="Floor_7_6" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=988671105 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 26)
+collision_mask = 0
+
+[node name="Floor_8_6" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=1115508361 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 26)
+collision_mask = 0
+
+[node name="Floor_2_7" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=975170376 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 30)
+collision_mask = 0
+
+[node name="Floor_8_7" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=1832102252 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 30)
+collision_mask = 0
+
+[node name="Floor_2_8" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=968297521 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 34)
+collision_mask = 0
+
+[node name="Floor_8_8" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=1008279420 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 34)
+collision_mask = 0
+
+[node name="Floor_2_9" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=1191712203 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 38)
+collision_mask = 0
+
+[node name="Floor_6_9" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=1155084926 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 38)
+collision_mask = 0
+
+[node name="Floor_7_9" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=363482500 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 38)
+collision_mask = 0
+
+[node name="Floor_8_9" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=679544194 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 38)
+collision_mask = 0
+
+[node name="Floor_2_10" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=1730938117 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 42)
+collision_mask = 0
+
+[node name="Floor_6_10" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=769631167 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 42)
+collision_mask = 0
+
+[node name="Floor_7_10" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=1983718126 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 42)
+collision_mask = 0
+
+[node name="Floor_8_10" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=30251520 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 42)
+collision_mask = 0
+
+[node name="Floor_2_11" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=147256492 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 46)
+collision_mask = 0
+
+[node name="Floor_4_11" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=845002680 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 46)
+collision_mask = 0
+
+[node name="Floor_5_11" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=110890516 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 46)
+collision_mask = 0
+
+[node name="Floor_6_11" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=206415175 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 46)
+collision_mask = 0
+
+[node name="Floor_7_11" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=1022637627 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 46)
+collision_mask = 0
+
+[node name="Floor_8_11" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=1024570257 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 46)
+collision_mask = 0
+
+[node name="Floor_2_12" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=414309778 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 50)
+collision_mask = 0
+
+[node name="Floor_7_12" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=229035967 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 50)
+collision_mask = 0
+
+[node name="Floor_8_12" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=1036785111 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 50)
+collision_mask = 0
+
+[node name="Floor_2_13" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=634878580 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 54)
+collision_mask = 0
+
+[node name="Floor_7_13" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=2048546538 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 54)
+collision_mask = 0
+
+[node name="Floor_8_13" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=1687915605 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 54)
+collision_mask = 0
+
+[node name="Floor_2_14" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=1100404915 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 58)
+collision_mask = 0
+
+[node name="Floor_7_14" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=9957380 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 58)
+collision_mask = 0
+
+[node name="Floor_8_14" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=1708135811 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 58)
+collision_mask = 0
+
+[node name="Floor_2_15" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=776917384 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 62)
+collision_mask = 0
+
+[node name="Floor_7_15" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=1340563098 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 62)
+collision_mask = 0
+
+[node name="Floor_8_15" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=1549579285 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 62)
+collision_mask = 0
+
+[node name="Floor_2_16" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=1535463441 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 66)
+collision_mask = 0
+
+[node name="Floor_7_16" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=643036996 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 66)
+collision_mask = 0
+
+[node name="Floor_8_16" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=2114472016 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 66)
+collision_mask = 0
+
+[node name="Floor_2_17" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=2132696081 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 70)
+collision_mask = 0
+
+[node name="Floor_3_17" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=1193033406 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 70)
+collision_mask = 0
+
+[node name="Floor_4_17" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=1293997174 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 70)
+collision_mask = 0
+
+[node name="Floor_5_17" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=1182138763 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 70)
+collision_mask = 0
+
+[node name="Floor_6_17" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=2044192269 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 70)
+collision_mask = 0
+
+[node name="Floor_7_17" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=721705523 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 70)
+collision_mask = 0
+
+[node name="Floor_8_17" type="StaticBody3D" parent="Geometry/Generated/POI_0_Plot" unique_id=519759077 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 70)
+collision_mask = 0
+
+[node name="P0_Room_0" type="Node3D" parent="Geometry/Generated" unique_id=1044686520]
+metadata/lb_unit_id = "P0_Room_0"
+metadata/lb_unit_kind = "room"
+metadata/lb_unit_layer = "poi_0"
+metadata/lb_unit_type = "guardroom"
+metadata/lb_rect = Rect2i(3, 7, 3, 4)
+metadata/lb_base_y = 0.0
+metadata/lb_walls = true
+metadata/lb_seed = 1990111364
+
+[node name="Floor_3_7" type="StaticBody3D" parent="Geometry/Generated/P0_Room_0" unique_id=611954029 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 30)
+collision_mask = 0
+
+[node name="Wall_3_7_W" type="StaticBody3D" parent="Geometry/Generated/P0_Room_0" unique_id=1046879603 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12, 0.2, 30)
+collision_mask = 0
+
+[node name="Wall_3_7_N" type="StaticBody3D" parent="Geometry/Generated/P0_Room_0" unique_id=662119846 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0.2, 28)
+collision_mask = 0
+
+[node name="Floor_4_7" type="StaticBody3D" parent="Geometry/Generated/P0_Room_0" unique_id=850380532 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 30)
+collision_mask = 0
+
+[node name="Wall_4_7_N" type="StaticBody3D" parent="Geometry/Generated/P0_Room_0" unique_id=964945099 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0.2, 28)
+collision_mask = 0
+
+[node name="Floor_5_7" type="StaticBody3D" parent="Geometry/Generated/P0_Room_0" unique_id=2022890307 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 30)
+collision_mask = 0
+
+[node name="Wall_5_7_N" type="StaticBody3D" parent="Geometry/Generated/P0_Room_0" unique_id=1920733385 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0.2, 28)
+collision_mask = 0
+
+[node name="Floor_3_8" type="StaticBody3D" parent="Geometry/Generated/P0_Room_0" unique_id=1677698264 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 34)
+collision_mask = 0
+
+[node name="Wall_3_8_W" type="StaticBody3D" parent="Geometry/Generated/P0_Room_0" unique_id=606377428 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12, 0.2, 34)
+collision_mask = 0
+
+[node name="Floor_4_8" type="StaticBody3D" parent="Geometry/Generated/P0_Room_0" unique_id=1481389883 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 34)
+collision_mask = 0
+
+[node name="Floor_5_8" type="StaticBody3D" parent="Geometry/Generated/P0_Room_0" unique_id=561820385 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 34)
+collision_mask = 0
+
+[node name="Floor_3_9" type="StaticBody3D" parent="Geometry/Generated/P0_Room_0" unique_id=263044353 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 38)
+collision_mask = 0
+
+[node name="Wall_3_9_W" type="StaticBody3D" parent="Geometry/Generated/P0_Room_0" unique_id=1279597467 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12, 0.2, 38)
+collision_mask = 0
+
+[node name="Floor_4_9" type="StaticBody3D" parent="Geometry/Generated/P0_Room_0" unique_id=1986156173 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 38)
+collision_mask = 0
+
+[node name="Floor_5_9" type="StaticBody3D" parent="Geometry/Generated/P0_Room_0" unique_id=921307838 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 38)
+collision_mask = 0
+
+[node name="Wall_5_9_E" type="StaticBody3D" parent="Geometry/Generated/P0_Room_0" unique_id=172577016 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 24, 0.2, 38)
+collision_mask = 0
+
+[node name="Floor_3_10" type="StaticBody3D" parent="Geometry/Generated/P0_Room_0" unique_id=1146083004 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 42)
+collision_mask = 0
+
+[node name="Wall_3_10_W" type="StaticBody3D" parent="Geometry/Generated/P0_Room_0" unique_id=1238025100 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12, 0.2, 42)
+collision_mask = 0
+
+[node name="Floor_4_10" type="StaticBody3D" parent="Geometry/Generated/P0_Room_0" unique_id=1927322519 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 42)
+collision_mask = 0
+
+[node name="Wall_4_10_S" type="StaticBody3D" parent="Geometry/Generated/P0_Room_0" unique_id=200715684 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0.2, 44)
+collision_mask = 0
+
+[node name="Floor_5_10" type="StaticBody3D" parent="Geometry/Generated/P0_Room_0" unique_id=2007095230 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 42)
+collision_mask = 0
+
+[node name="Wall_5_10_E" type="StaticBody3D" parent="Geometry/Generated/P0_Room_0" unique_id=371957764 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 24, 0.2, 42)
+collision_mask = 0
+
+[node name="Wall_5_10_S" type="StaticBody3D" parent="Geometry/Generated/P0_Room_0" unique_id=581796161 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0.2, 44)
+collision_mask = 0
+
+[node name="P0_Corridor_0" type="Node3D" parent="Geometry/Generated" unique_id=1369909456]
+metadata/lb_unit_id = "P0_Corridor_0"
+metadata/lb_unit_kind = "corridor"
+metadata/lb_unit_layer = "poi_0"
+metadata/lb_unit_type = ""
+metadata/lb_rect = Rect2i(3, 11, 1, 1)
+metadata/lb_base_y = 0.0
+metadata/lb_walls = true
+metadata/lb_seed = 2008074210
+metadata/lb_axis = Vector2i(0, 1)
+
+[node name="Floor_3_11" type="StaticBody3D" parent="Geometry/Generated/P0_Corridor_0" unique_id=1983900146 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 46)
+collision_mask = 0
+
+[node name="Wall_3_11_E" type="StaticBody3D" parent="Geometry/Generated/P0_Corridor_0" unique_id=750696243 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 16, 0.2, 46)
+collision_mask = 0
+
+[node name="Wall_3_11_W" type="StaticBody3D" parent="Geometry/Generated/P0_Corridor_0" unique_id=285510619 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12, 0.2, 46)
+collision_mask = 0
+
+[node name="P0_Room_1" type="Node3D" parent="Geometry/Generated" unique_id=813759450]
+metadata/lb_unit_id = "P0_Room_1"
+metadata/lb_unit_kind = "room"
+metadata/lb_unit_layer = "poi_0"
+metadata/lb_unit_type = "tavern"
+metadata/lb_rect = Rect2i(3, 12, 4, 5)
+metadata/lb_base_y = 0.0
+metadata/lb_walls = true
+metadata/lb_seed = 2908803493
+
+[node name="Floor_3_12" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=1146971090 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 50)
+collision_mask = 0
+
+[node name="Wall_3_12_W" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=2056251149 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12, 0.2, 50)
+collision_mask = 0
+
+[node name="Floor_4_12" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=820349199 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 50)
+collision_mask = 0
+
+[node name="Wall_4_12_N" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=1886067556 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0.2, 48)
+collision_mask = 0
+
+[node name="Floor_5_12" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=731709300 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 50)
+collision_mask = 0
+
+[node name="Wall_5_12_N" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=2098151340 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0.2, 48)
+collision_mask = 0
+
+[node name="Floor_6_12" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=938768149 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 50)
+collision_mask = 0
+
+[node name="Wall_6_12_E" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=371346278 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 28, 0.2, 50)
+collision_mask = 0
+
+[node name="Wall_6_12_N" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=1093864859 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0.2, 48)
+collision_mask = 0
+
+[node name="Floor_3_13" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=1214580191 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 54)
+collision_mask = 0
+
+[node name="Wall_3_13_W" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=1963752353 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12, 0.2, 54)
+collision_mask = 0
+
+[node name="Floor_4_13" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=347630004 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 54)
+collision_mask = 0
+
+[node name="Floor_5_13" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=966189468 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 54)
+collision_mask = 0
+
+[node name="Floor_6_13" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=1600160464 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 54)
+collision_mask = 0
+
+[node name="Wall_6_13_E" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=99873424 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 28, 0.2, 54)
+collision_mask = 0
+
+[node name="Floor_3_14" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=1540601869 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 58)
+collision_mask = 0
+
+[node name="Wall_3_14_W" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=1560062050 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12, 0.2, 58)
+collision_mask = 0
+
+[node name="Floor_4_14" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=1660315779 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 58)
+collision_mask = 0
+
+[node name="Floor_5_14" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=225306702 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 58)
+collision_mask = 0
+
+[node name="Floor_6_14" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=949553916 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 58)
+collision_mask = 0
+
+[node name="Wall_6_14_E" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=621115484 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 28, 0.2, 58)
+collision_mask = 0
+
+[node name="Floor_3_15" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=1953219719 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 62)
+collision_mask = 0
+
+[node name="Wall_3_15_W" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=1663451437 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12, 0.2, 62)
+collision_mask = 0
+
+[node name="Floor_4_15" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=435219133 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 62)
+collision_mask = 0
+
+[node name="Floor_5_15" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=1943061250 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 62)
+collision_mask = 0
+
+[node name="Floor_6_15" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=2068293732 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 62)
+collision_mask = 0
+
+[node name="Wall_6_15_E" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=965500253 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 28, 0.2, 62)
+collision_mask = 0
+
+[node name="Floor_3_16" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=828630893 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 66)
+collision_mask = 0
+
+[node name="Wall_3_16_W" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=67625579 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12, 0.2, 66)
+collision_mask = 0
+
+[node name="Wall_3_16_S" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=1447084829 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0.2, 68)
+collision_mask = 0
+
+[node name="Floor_4_16" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=684854320 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 66)
+collision_mask = 0
+
+[node name="Wall_4_16_S" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=1684420302 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0.2, 68)
+collision_mask = 0
+
+[node name="Floor_5_16" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=363594634 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 66)
+collision_mask = 0
+
+[node name="Wall_5_16_S" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=1310697778 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0.2, 68)
+collision_mask = 0
+
+[node name="Floor_6_16" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=17379082 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 66)
+collision_mask = 0
+
+[node name="Wall_6_16_E" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=684414142 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 28, 0.2, 66)
+collision_mask = 0
+
+[node name="Wall_6_16_S" type="StaticBody3D" parent="Geometry/Generated/P0_Room_1" unique_id=63852968 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0.2, 68)
+collision_mask = 0
+
+[node name="P0_Yard_0" type="Node3D" parent="Geometry/Generated" unique_id=1302692043]
+metadata/lb_unit_id = "P0_Yard_0"
+metadata/lb_unit_kind = "pad"
+metadata/lb_unit_layer = "poi_0"
+metadata/lb_unit_type = ""
+metadata/lb_rect = Rect2i(6, 7, 2, 2)
+metadata/lb_base_y = 0.0
+metadata/lb_walls = false
+metadata/lb_seed = 1838412483
+
+[node name="Floor_6_7" type="StaticBody3D" parent="Geometry/Generated/P0_Yard_0" unique_id=1005131598 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 30)
+collision_mask = 0
+
+[node name="Floor_7_7" type="StaticBody3D" parent="Geometry/Generated/P0_Yard_0" unique_id=684963281 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 30)
+collision_mask = 0
+
+[node name="Floor_6_8" type="StaticBody3D" parent="Geometry/Generated/P0_Yard_0" unique_id=2037634875 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 34)
+collision_mask = 0
+
+[node name="Floor_7_8" type="StaticBody3D" parent="Geometry/Generated/P0_Yard_0" unique_id=1753102331 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 34)
+collision_mask = 0
+
+[node name="POI_1_Plot" type="Node3D" parent="Geometry/Generated" unique_id=1359962567]
+metadata/lb_unit_id = "POI_1_Plot"
+metadata/lb_unit_kind = "pad"
+metadata/lb_unit_layer = "ground"
+metadata/lb_unit_type = "ruin"
+metadata/lb_rect = Rect2i(17, 3, 10, 18)
+metadata/lb_base_y = 0.0
+metadata/lb_walls = false
+metadata/lb_seed = 896602296
+metadata/lb_poi_layer = "poi_1"
+metadata/lb_cells = [Vector2i(17, 3), Vector2i(18, 3), Vector2i(19, 3), Vector2i(20, 3), Vector2i(21, 3), Vector2i(22, 3), Vector2i(23, 3), Vector2i(24, 3), Vector2i(25, 3), Vector2i(26, 3), Vector2i(17, 4), Vector2i(18, 4), Vector2i(19, 4), Vector2i(20, 4), Vector2i(25, 4), Vector2i(26, 4), Vector2i(17, 5), Vector2i(18, 5), Vector2i(19, 5), Vector2i(20, 5), Vector2i(25, 5), Vector2i(26, 5), Vector2i(17, 6), Vector2i(18, 6), Vector2i(19, 6), Vector2i(20, 6), Vector2i(25, 6), Vector2i(26, 6), Vector2i(17, 7), Vector2i(18, 7), Vector2i(19, 7), Vector2i(20, 7), Vector2i(25, 7), Vector2i(26, 7), Vector2i(17, 8), Vector2i(18, 8), Vector2i(19, 8), Vector2i(20, 8), Vector2i(22, 8), Vector2i(23, 8), Vector2i(26, 8), Vector2i(17, 9), Vector2i(18, 9), Vector2i(19, 9), Vector2i(20, 9), Vector2i(22, 9), Vector2i(23, 9), Vector2i(26, 9), Vector2i(17, 10), Vector2i(23, 10), Vector2i(24, 10), Vector2i(25, 10), Vector2i(26, 10), Vector2i(17, 11), Vector2i(23, 11), Vector2i(24, 11), Vector2i(25, 11), Vector2i(26, 11), Vector2i(17, 12), Vector2i(23, 12), Vector2i(24, 12), Vector2i(25, 12), Vector2i(26, 12), Vector2i(17, 13), Vector2i(23, 13), Vector2i(24, 13), Vector2i(25, 13), Vector2i(26, 13), Vector2i(17, 14), Vector2i(23, 14), Vector2i(24, 14), Vector2i(25, 14), Vector2i(26, 14), Vector2i(17, 15), Vector2i(18, 15), Vector2i(19, 15), Vector2i(20, 15), Vector2i(22, 15), Vector2i(23, 15), Vector2i(24, 15), Vector2i(25, 15), Vector2i(26, 15), Vector2i(17, 16), Vector2i(18, 16), Vector2i(19, 16), Vector2i(20, 16), Vector2i(22, 16), Vector2i(23, 16), Vector2i(24, 16), Vector2i(25, 16), Vector2i(26, 16), Vector2i(17, 17), Vector2i(23, 17), Vector2i(24, 17), Vector2i(25, 17), Vector2i(26, 17), Vector2i(17, 18), Vector2i(23, 18), Vector2i(24, 18), Vector2i(25, 18), Vector2i(26, 18), Vector2i(17, 19), Vector2i(23, 19), Vector2i(24, 19), Vector2i(25, 19), Vector2i(26, 19), Vector2i(17, 20), Vector2i(18, 20), Vector2i(19, 20), Vector2i(20, 20), Vector2i(21, 20), Vector2i(22, 20), Vector2i(23, 20), Vector2i(24, 20), Vector2i(25, 20), Vector2i(26, 20)]
+
+[node name="Floor_17_3" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=240117338 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 14)
+collision_mask = 0
+
+[node name="Floor_18_3" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=383837973 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 0, 14)
+collision_mask = 0
+
+[node name="Floor_19_3" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=2136439239 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78, 0, 14)
+collision_mask = 0
+
+[node name="Floor_20_3" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1258262792 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 0, 14)
+collision_mask = 0
+
+[node name="Floor_21_3" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1851923838 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 0, 14)
+collision_mask = 0
+
+[node name="Floor_22_3" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=2087184219 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0, 14)
+collision_mask = 0
+
+[node name="Floor_23_3" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=82868086 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94, 0, 14)
+collision_mask = 0
+
+[node name="Floor_24_3" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1773053926 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 0, 14)
+collision_mask = 0
+
+[node name="Floor_25_3" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1725005731 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102, 0, 14)
+collision_mask = 0
+
+[node name="Floor_26_3" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=209017458 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 0, 14)
+collision_mask = 0
+
+[node name="Floor_17_4" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=619486818 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 18)
+collision_mask = 0
+
+[node name="Floor_18_4" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=898214050 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 0, 18)
+collision_mask = 0
+
+[node name="Floor_19_4" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1197398070 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78, 0, 18)
+collision_mask = 0
+
+[node name="Floor_20_4" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=218573880 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 0, 18)
+collision_mask = 0
+
+[node name="Floor_25_4" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=263588683 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102, 0, 18)
+collision_mask = 0
+
+[node name="Floor_26_4" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=501663538 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 0, 18)
+collision_mask = 0
+
+[node name="Floor_17_5" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=649073764 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 22)
+collision_mask = 0
+
+[node name="Floor_18_5" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=693510128 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 0, 22)
+collision_mask = 0
+
+[node name="Floor_19_5" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=2104606928 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78, 0, 22)
+collision_mask = 0
+
+[node name="Floor_20_5" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1423677340 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 0, 22)
+collision_mask = 0
+
+[node name="Floor_25_5" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1487867607 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102, 0, 22)
+collision_mask = 0
+
+[node name="Floor_26_5" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1114945750 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 0, 22)
+collision_mask = 0
+
+[node name="Floor_17_6" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=824848082 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 26)
+collision_mask = 0
+
+[node name="Floor_18_6" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=760169976 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 0, 26)
+collision_mask = 0
+
+[node name="Floor_19_6" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1479027140 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78, 0, 26)
+collision_mask = 0
+
+[node name="Floor_20_6" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1195806041 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 0, 26)
+collision_mask = 0
+
+[node name="Floor_25_6" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=535505570 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102, 0, 26)
+collision_mask = 0
+
+[node name="Floor_26_6" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=455745406 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 0, 26)
+collision_mask = 0
+
+[node name="Floor_17_7" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=416175639 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 30)
+collision_mask = 0
+
+[node name="Floor_18_7" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=674138561 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 0, 30)
+collision_mask = 0
+
+[node name="Floor_19_7" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=466667638 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78, 0, 30)
+collision_mask = 0
+
+[node name="Floor_20_7" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=726295514 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 0, 30)
+collision_mask = 0
+
+[node name="Floor_25_7" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1426783569 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102, 0, 30)
+collision_mask = 0
+
+[node name="Floor_26_7" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1582446023 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 0, 30)
+collision_mask = 0
+
+[node name="Floor_17_8" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1619530949 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 34)
+collision_mask = 0
+
+[node name="Floor_18_8" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=438924559 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 0, 34)
+collision_mask = 0
+
+[node name="Floor_19_8" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=2049388670 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78, 0, 34)
+collision_mask = 0
+
+[node name="Floor_20_8" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1436732234 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 0, 34)
+collision_mask = 0
+
+[node name="Floor_22_8" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=611954316 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0, 34)
+collision_mask = 0
+
+[node name="Floor_23_8" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=550461003 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94, 0, 34)
+collision_mask = 0
+
+[node name="Floor_26_8" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=872527491 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 0, 34)
+collision_mask = 0
+
+[node name="Floor_17_9" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=973288398 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 38)
+collision_mask = 0
+
+[node name="Floor_18_9" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1100829843 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 0, 38)
+collision_mask = 0
+
+[node name="Floor_19_9" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1212515129 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78, 0, 38)
+collision_mask = 0
+
+[node name="Floor_20_9" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=954909101 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 0, 38)
+collision_mask = 0
+
+[node name="Floor_22_9" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=889777230 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0, 38)
+collision_mask = 0
+
+[node name="Floor_23_9" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1381925738 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94, 0, 38)
+collision_mask = 0
+
+[node name="Floor_26_9" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=297541314 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 0, 38)
+collision_mask = 0
+
+[node name="Floor_17_10" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1949386782 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 42)
+collision_mask = 0
+
+[node name="Floor_23_10" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1449769685 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94, 0, 42)
+collision_mask = 0
+
+[node name="Floor_24_10" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=497889059 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 0, 42)
+collision_mask = 0
+
+[node name="Floor_25_10" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=496200706 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102, 0, 42)
+collision_mask = 0
+
+[node name="Floor_26_10" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=40148930 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 0, 42)
+collision_mask = 0
+
+[node name="Floor_17_11" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1899684055 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 46)
+collision_mask = 0
+
+[node name="Floor_23_11" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1116848337 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94, 0, 46)
+collision_mask = 0
+
+[node name="Floor_24_11" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=581597929 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 0, 46)
+collision_mask = 0
+
+[node name="Floor_25_11" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1299435163 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102, 0, 46)
+collision_mask = 0
+
+[node name="Floor_26_11" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1257554464 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 0, 46)
+collision_mask = 0
+
+[node name="Floor_17_12" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1269105143 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 50)
+collision_mask = 0
+
+[node name="Floor_23_12" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=799541139 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94, 0, 50)
+collision_mask = 0
+
+[node name="Floor_24_12" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=225136207 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 0, 50)
+collision_mask = 0
+
+[node name="Floor_25_12" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1192465785 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102, 0, 50)
+collision_mask = 0
+
+[node name="Floor_26_12" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=880187009 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 0, 50)
+collision_mask = 0
+
+[node name="Floor_17_13" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=499777241 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 54)
+collision_mask = 0
+
+[node name="Floor_23_13" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1896973133 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94, 0, 54)
+collision_mask = 0
+
+[node name="Floor_24_13" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1193529650 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 0, 54)
+collision_mask = 0
+
+[node name="Floor_25_13" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1570702742 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102, 0, 54)
+collision_mask = 0
+
+[node name="Floor_26_13" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=165354328 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 0, 54)
+collision_mask = 0
+
+[node name="Floor_17_14" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=6446323 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 58)
+collision_mask = 0
+
+[node name="Floor_23_14" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=671150622 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94, 0, 58)
+collision_mask = 0
+
+[node name="Floor_24_14" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=248346476 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 0, 58)
+collision_mask = 0
+
+[node name="Floor_25_14" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1425402155 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102, 0, 58)
+collision_mask = 0
+
+[node name="Floor_26_14" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1134926748 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 0, 58)
+collision_mask = 0
+
+[node name="Floor_17_15" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1185877743 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 62)
+collision_mask = 0
+
+[node name="Floor_18_15" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1182316555 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 0, 62)
+collision_mask = 0
+
+[node name="Floor_19_15" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1815048777 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78, 0, 62)
+collision_mask = 0
+
+[node name="Floor_20_15" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=2077896370 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 0, 62)
+collision_mask = 0
+
+[node name="Floor_22_15" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=665194443 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0, 62)
+collision_mask = 0
+
+[node name="Floor_23_15" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=467275341 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94, 0, 62)
+collision_mask = 0
+
+[node name="Floor_24_15" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=474670643 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 0, 62)
+collision_mask = 0
+
+[node name="Floor_25_15" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1551689317 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102, 0, 62)
+collision_mask = 0
+
+[node name="Floor_26_15" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=327429691 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 0, 62)
+collision_mask = 0
+
+[node name="Floor_17_16" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1606708895 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 66)
+collision_mask = 0
+
+[node name="Floor_18_16" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=298191699 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 0, 66)
+collision_mask = 0
+
+[node name="Floor_19_16" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=994203962 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78, 0, 66)
+collision_mask = 0
+
+[node name="Floor_20_16" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1068911331 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 0, 66)
+collision_mask = 0
+
+[node name="Floor_22_16" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=317153333 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0, 66)
+collision_mask = 0
+
+[node name="Floor_23_16" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1727215451 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94, 0, 66)
+collision_mask = 0
+
+[node name="Floor_24_16" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1935205559 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 0, 66)
+collision_mask = 0
+
+[node name="Floor_25_16" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1155102844 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102, 0, 66)
+collision_mask = 0
+
+[node name="Floor_26_16" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1078836322 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 0, 66)
+collision_mask = 0
+
+[node name="Floor_17_17" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=36156147 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 70)
+collision_mask = 0
+
+[node name="Floor_23_17" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=330527401 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94, 0, 70)
+collision_mask = 0
+
+[node name="Floor_24_17" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=509763011 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 0, 70)
+collision_mask = 0
+
+[node name="Floor_25_17" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1197321719 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102, 0, 70)
+collision_mask = 0
+
+[node name="Floor_26_17" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1582660976 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 0, 70)
+collision_mask = 0
+
+[node name="Floor_17_18" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=482070322 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 74)
+collision_mask = 0
+
+[node name="Floor_23_18" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=629995171 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94, 0, 74)
+collision_mask = 0
+
+[node name="Floor_24_18" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=2065349765 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 0, 74)
+collision_mask = 0
+
+[node name="Floor_25_18" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1145226673 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102, 0, 74)
+collision_mask = 0
+
+[node name="Floor_26_18" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=884732018 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 0, 74)
+collision_mask = 0
+
+[node name="Floor_17_19" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1603297760 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 78)
+collision_mask = 0
+
+[node name="Floor_23_19" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=336749632 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94, 0, 78)
+collision_mask = 0
+
+[node name="Floor_24_19" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=778708333 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 0, 78)
+collision_mask = 0
+
+[node name="Floor_25_19" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1949801930 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102, 0, 78)
+collision_mask = 0
+
+[node name="Floor_26_19" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1862891205 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 0, 78)
+collision_mask = 0
+
+[node name="Floor_17_20" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=976520682 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 82)
+collision_mask = 0
+
+[node name="Floor_18_20" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=998376858 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 0, 82)
+collision_mask = 0
+
+[node name="Floor_19_20" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1179015368 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78, 0, 82)
+collision_mask = 0
+
+[node name="Floor_20_20" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=836663726 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 0, 82)
+collision_mask = 0
+
+[node name="Floor_21_20" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=2061568026 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 0, 82)
+collision_mask = 0
+
+[node name="Floor_22_20" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1097061702 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0, 82)
+collision_mask = 0
+
+[node name="Floor_23_20" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1612412291 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94, 0, 82)
+collision_mask = 0
+
+[node name="Floor_24_20" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=694860271 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 0, 82)
+collision_mask = 0
+
+[node name="Floor_25_20" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1626336416 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102, 0, 82)
+collision_mask = 0
+
+[node name="Floor_26_20" type="StaticBody3D" parent="Geometry/Generated/POI_1_Plot" unique_id=1867468883 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 0, 82)
+collision_mask = 0
+
+[node name="P1_Room_0" type="Node3D" parent="Geometry/Generated" unique_id=1054283935]
+metadata/lb_unit_id = "P1_Room_0"
+metadata/lb_unit_kind = "room"
+metadata/lb_unit_layer = "poi_1"
+metadata/lb_unit_type = "guardroom"
+metadata/lb_rect = Rect2i(21, 4, 4, 4)
+metadata/lb_base_y = 0.0
+metadata/lb_walls = true
+metadata/lb_seed = 1689572005
+
+[node name="Floor_21_4" type="StaticBody3D" parent="Geometry/Generated/P1_Room_0" unique_id=737706787 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 0, 18)
+collision_mask = 0
+
+[node name="Wall_21_4_W" type="StaticBody3D" parent="Geometry/Generated/P1_Room_0" unique_id=1154760178 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 84, 0.2, 18)
+collision_mask = 0
+
+[node name="Wall_21_4_N" type="StaticBody3D" parent="Geometry/Generated/P1_Room_0" unique_id=955827334 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 0.2, 16)
+collision_mask = 0
+
+[node name="Floor_22_4" type="StaticBody3D" parent="Geometry/Generated/P1_Room_0" unique_id=1305946720 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0, 18)
+collision_mask = 0
+
+[node name="Wall_22_4_N" type="StaticBody3D" parent="Geometry/Generated/P1_Room_0" unique_id=649297015 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0.2, 16)
+collision_mask = 0
+
+[node name="Floor_23_4" type="StaticBody3D" parent="Geometry/Generated/P1_Room_0" unique_id=1921879172 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94, 0, 18)
+collision_mask = 0
+
+[node name="Wall_23_4_N" type="StaticBody3D" parent="Geometry/Generated/P1_Room_0" unique_id=773206812 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94, 0.2, 16)
+collision_mask = 0
+
+[node name="Floor_24_4" type="StaticBody3D" parent="Geometry/Generated/P1_Room_0" unique_id=1571951157 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 0, 18)
+collision_mask = 0
+
+[node name="Wall_24_4_E" type="StaticBody3D" parent="Geometry/Generated/P1_Room_0" unique_id=1498514407 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 100, 0.2, 18)
+collision_mask = 0
+
+[node name="Wall_24_4_N" type="StaticBody3D" parent="Geometry/Generated/P1_Room_0" unique_id=1316213872 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 0.2, 16)
+collision_mask = 0
+
+[node name="Floor_21_5" type="StaticBody3D" parent="Geometry/Generated/P1_Room_0" unique_id=1840321071 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 0, 22)
+collision_mask = 0
+
+[node name="Wall_21_5_W" type="StaticBody3D" parent="Geometry/Generated/P1_Room_0" unique_id=1853649146 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 84, 0.2, 22)
+collision_mask = 0
+
+[node name="Floor_22_5" type="StaticBody3D" parent="Geometry/Generated/P1_Room_0" unique_id=636519462 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0, 22)
+collision_mask = 0
+
+[node name="Floor_23_5" type="StaticBody3D" parent="Geometry/Generated/P1_Room_0" unique_id=368567876 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94, 0, 22)
+collision_mask = 0
+
+[node name="Floor_24_5" type="StaticBody3D" parent="Geometry/Generated/P1_Room_0" unique_id=973323386 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 0, 22)
+collision_mask = 0
+
+[node name="Wall_24_5_E" type="StaticBody3D" parent="Geometry/Generated/P1_Room_0" unique_id=1429447367 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 100, 0.2, 22)
+collision_mask = 0
+
+[node name="Floor_21_6" type="StaticBody3D" parent="Geometry/Generated/P1_Room_0" unique_id=1514172726 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 0, 26)
+collision_mask = 0
+
+[node name="Wall_21_6_W" type="StaticBody3D" parent="Geometry/Generated/P1_Room_0" unique_id=1456268106 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 84, 0.2, 26)
+collision_mask = 0
+
+[node name="Floor_22_6" type="StaticBody3D" parent="Geometry/Generated/P1_Room_0" unique_id=1505877242 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0, 26)
+collision_mask = 0
+
+[node name="Floor_23_6" type="StaticBody3D" parent="Geometry/Generated/P1_Room_0" unique_id=332423027 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94, 0, 26)
+collision_mask = 0
+
+[node name="Floor_24_6" type="StaticBody3D" parent="Geometry/Generated/P1_Room_0" unique_id=1543076384 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 0, 26)
+collision_mask = 0
+
+[node name="Wall_24_6_E" type="StaticBody3D" parent="Geometry/Generated/P1_Room_0" unique_id=1036353283 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 100, 0.2, 26)
+collision_mask = 0
+
+[node name="Floor_21_7" type="StaticBody3D" parent="Geometry/Generated/P1_Room_0" unique_id=1369032562 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 0, 30)
+collision_mask = 0
+
+[node name="Wall_21_7_W" type="StaticBody3D" parent="Geometry/Generated/P1_Room_0" unique_id=1972923762 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 84, 0.2, 30)
+collision_mask = 0
+
+[node name="Floor_22_7" type="StaticBody3D" parent="Geometry/Generated/P1_Room_0" unique_id=995062381 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0, 30)
+collision_mask = 0
+
+[node name="Wall_22_7_S" type="StaticBody3D" parent="Geometry/Generated/P1_Room_0" unique_id=749345091 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0.2, 32)
+collision_mask = 0
+
+[node name="Floor_23_7" type="StaticBody3D" parent="Geometry/Generated/P1_Room_0" unique_id=2123952840 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94, 0, 30)
+collision_mask = 0
+
+[node name="Wall_23_7_S" type="StaticBody3D" parent="Geometry/Generated/P1_Room_0" unique_id=190439258 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94, 0.2, 32)
+collision_mask = 0
+
+[node name="Floor_24_7" type="StaticBody3D" parent="Geometry/Generated/P1_Room_0" unique_id=579829890 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 0, 30)
+collision_mask = 0
+
+[node name="Wall_24_7_E" type="StaticBody3D" parent="Geometry/Generated/P1_Room_0" unique_id=991788884 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 100, 0.2, 30)
+collision_mask = 0
+
+[node name="P1_Corridor_0" type="Node3D" parent="Geometry/Generated" unique_id=878995532]
+metadata/lb_unit_id = "P1_Corridor_0"
+metadata/lb_unit_kind = "corridor"
+metadata/lb_unit_layer = "poi_1"
+metadata/lb_unit_type = ""
+metadata/lb_rect = Rect2i(21, 8, 1, 2)
+metadata/lb_base_y = 0.0
+metadata/lb_walls = true
+metadata/lb_seed = 2829329731
+metadata/lb_axis = Vector2i(0, 1)
+
+[node name="Floor_21_8" type="StaticBody3D" parent="Geometry/Generated/P1_Corridor_0" unique_id=959134002 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 0, 34)
+collision_mask = 0
+
+[node name="Wall_21_8_E" type="StaticBody3D" parent="Geometry/Generated/P1_Corridor_0" unique_id=437402948 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 88, 0.2, 34)
+collision_mask = 0
+
+[node name="Wall_21_8_W" type="StaticBody3D" parent="Geometry/Generated/P1_Corridor_0" unique_id=1016586192 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 84, 0.2, 34)
+collision_mask = 0
+
+[node name="Floor_21_9" type="StaticBody3D" parent="Geometry/Generated/P1_Corridor_0" unique_id=1677582312 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 0, 38)
+collision_mask = 0
+
+[node name="Wall_21_9_E" type="StaticBody3D" parent="Geometry/Generated/P1_Corridor_0" unique_id=858330163 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 88, 0.2, 38)
+collision_mask = 0
+
+[node name="Wall_21_9_W" type="StaticBody3D" parent="Geometry/Generated/P1_Corridor_0" unique_id=1977007514 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 84, 0.2, 38)
+collision_mask = 0
+
+[node name="P1_Room_1" type="Node3D" parent="Geometry/Generated" unique_id=1325421885]
+metadata/lb_unit_id = "P1_Room_1"
+metadata/lb_unit_kind = "room"
+metadata/lb_unit_layer = "poi_1"
+metadata/lb_unit_type = "shrine"
+metadata/lb_rect = Rect2i(18, 10, 5, 5)
+metadata/lb_base_y = 0.0
+metadata/lb_walls = true
+metadata/lb_seed = 1322230079
+
+[node name="Floor_18_10" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=139956983 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 0, 42)
+collision_mask = 0
+
+[node name="Wall_18_10_W" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=1354703729 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 72, 0.2, 42)
+collision_mask = 0
+
+[node name="Wall_18_10_N" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=1389439289 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 0.2, 40)
+collision_mask = 0
+
+[node name="Floor_19_10" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=1973706934 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78, 0, 42)
+collision_mask = 0
+
+[node name="Wall_19_10_N" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=1633221715 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78, 0.2, 40)
+collision_mask = 0
+
+[node name="Floor_20_10" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=1128390918 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 0, 42)
+collision_mask = 0
+
+[node name="Wall_20_10_N" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=1570265928 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 0.2, 40)
+collision_mask = 0
+
+[node name="Floor_21_10" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=1944633266 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 0, 42)
+collision_mask = 0
+
+[node name="Floor_22_10" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=129648292 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0, 42)
+collision_mask = 0
+
+[node name="Wall_22_10_E" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=1738787257 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 92, 0.2, 42)
+collision_mask = 0
+
+[node name="Wall_22_10_N" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=114334 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0.2, 40)
+collision_mask = 0
+
+[node name="Floor_18_11" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=66501193 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 0, 46)
+collision_mask = 0
+
+[node name="Wall_18_11_W" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=682200416 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 72, 0.2, 46)
+collision_mask = 0
+
+[node name="Floor_19_11" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=631990401 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78, 0, 46)
+collision_mask = 0
+
+[node name="Floor_20_11" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=1888324371 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 0, 46)
+collision_mask = 0
+
+[node name="Floor_21_11" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=1094988997 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 0, 46)
+collision_mask = 0
+
+[node name="Floor_22_11" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=1981841337 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0, 46)
+collision_mask = 0
+
+[node name="Wall_22_11_E" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=897221574 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 92, 0.2, 46)
+collision_mask = 0
+
+[node name="Floor_18_12" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=1965296471 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 0, 50)
+collision_mask = 0
+
+[node name="Wall_18_12_W" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=1278618744 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 72, 0.2, 50)
+collision_mask = 0
+
+[node name="Floor_19_12" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=2010802296 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78, 0, 50)
+collision_mask = 0
+
+[node name="Floor_20_12" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=1498766470 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 0, 50)
+collision_mask = 0
+
+[node name="Floor_21_12" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=439183649 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 0, 50)
+collision_mask = 0
+
+[node name="Floor_22_12" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=614556573 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0, 50)
+collision_mask = 0
+
+[node name="Wall_22_12_E" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=1855881250 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 92, 0.2, 50)
+collision_mask = 0
+
+[node name="Floor_18_13" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=358740773 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 0, 54)
+collision_mask = 0
+
+[node name="Wall_18_13_W" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=1647576005 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 72, 0.2, 54)
+collision_mask = 0
+
+[node name="Floor_19_13" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=1395898217 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78, 0, 54)
+collision_mask = 0
+
+[node name="Floor_20_13" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=1285278029 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 0, 54)
+collision_mask = 0
+
+[node name="Floor_21_13" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=1223233181 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 0, 54)
+collision_mask = 0
+
+[node name="Floor_22_13" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=1507367083 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0, 54)
+collision_mask = 0
+
+[node name="Wall_22_13_E" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=110080515 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 92, 0.2, 54)
+collision_mask = 0
+
+[node name="Floor_18_14" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=992159252 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 0, 58)
+collision_mask = 0
+
+[node name="Wall_18_14_W" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=1262940483 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 72, 0.2, 58)
+collision_mask = 0
+
+[node name="Wall_18_14_S" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=1796609839 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 0.2, 60)
+collision_mask = 0
+
+[node name="Floor_19_14" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=714375093 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78, 0, 58)
+collision_mask = 0
+
+[node name="Wall_19_14_S" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=654333837 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78, 0.2, 60)
+collision_mask = 0
+
+[node name="Floor_20_14" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=2069559990 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 0, 58)
+collision_mask = 0
+
+[node name="Wall_20_14_S" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=485565029 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 0.2, 60)
+collision_mask = 0
+
+[node name="Floor_21_14" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=1838104216 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 0, 58)
+collision_mask = 0
+
+[node name="Floor_22_14" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=1254140642 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0, 58)
+collision_mask = 0
+
+[node name="Wall_22_14_E" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=1054495380 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 92, 0.2, 58)
+collision_mask = 0
+
+[node name="Wall_22_14_S" type="StaticBody3D" parent="Geometry/Generated/P1_Room_1" unique_id=1652448290 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0.2, 60)
+collision_mask = 0
+
+[node name="P1_Corridor_1" type="Node3D" parent="Geometry/Generated" unique_id=78053408]
+metadata/lb_unit_id = "P1_Corridor_1"
+metadata/lb_unit_kind = "corridor"
+metadata/lb_unit_layer = "poi_1"
+metadata/lb_unit_type = ""
+metadata/lb_rect = Rect2i(21, 15, 1, 2)
+metadata/lb_base_y = 0.0
+metadata/lb_walls = true
+metadata/lb_seed = 2829329732
+metadata/lb_axis = Vector2i(0, 1)
+
+[node name="Floor_21_15" type="StaticBody3D" parent="Geometry/Generated/P1_Corridor_1" unique_id=2129756389 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 0, 62)
+collision_mask = 0
+
+[node name="Wall_21_15_E" type="StaticBody3D" parent="Geometry/Generated/P1_Corridor_1" unique_id=339308815 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 88, 0.2, 62)
+collision_mask = 0
+
+[node name="Wall_21_15_W" type="StaticBody3D" parent="Geometry/Generated/P1_Corridor_1" unique_id=1717933272 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 84, 0.2, 62)
+collision_mask = 0
+
+[node name="Floor_21_16" type="StaticBody3D" parent="Geometry/Generated/P1_Corridor_1" unique_id=1120928733 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 0, 66)
+collision_mask = 0
+
+[node name="Wall_21_16_E" type="StaticBody3D" parent="Geometry/Generated/P1_Corridor_1" unique_id=22175536 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 88, 0.2, 66)
+collision_mask = 0
+
+[node name="Wall_21_16_W" type="StaticBody3D" parent="Geometry/Generated/P1_Corridor_1" unique_id=181888875 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 84, 0.2, 66)
+collision_mask = 0
+
+[node name="P1_Room_2" type="Node3D" parent="Geometry/Generated" unique_id=1842348807]
+metadata/lb_unit_id = "P1_Room_2"
+metadata/lb_unit_kind = "room"
+metadata/lb_unit_layer = "poi_1"
+metadata/lb_unit_type = "shrine"
+metadata/lb_rect = Rect2i(18, 17, 5, 3)
+metadata/lb_base_y = 0.0
+metadata/lb_walls = true
+metadata/lb_seed = 991000096
+
+[node name="Floor_18_17" type="StaticBody3D" parent="Geometry/Generated/P1_Room_2" unique_id=108349236 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 0, 70)
+collision_mask = 0
+
+[node name="Wall_18_17_W" type="StaticBody3D" parent="Geometry/Generated/P1_Room_2" unique_id=1842147175 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 72, 0.2, 70)
+collision_mask = 0
+
+[node name="Wall_18_17_N" type="StaticBody3D" parent="Geometry/Generated/P1_Room_2" unique_id=378459364 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 0.2, 68)
+collision_mask = 0
+
+[node name="Floor_19_17" type="StaticBody3D" parent="Geometry/Generated/P1_Room_2" unique_id=1678101276 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78, 0, 70)
+collision_mask = 0
+
+[node name="Wall_19_17_N" type="StaticBody3D" parent="Geometry/Generated/P1_Room_2" unique_id=870581977 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78, 0.2, 68)
+collision_mask = 0
+
+[node name="Floor_20_17" type="StaticBody3D" parent="Geometry/Generated/P1_Room_2" unique_id=2047621702 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 0, 70)
+collision_mask = 0
+
+[node name="Wall_20_17_N" type="StaticBody3D" parent="Geometry/Generated/P1_Room_2" unique_id=2078212036 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 0.2, 68)
+collision_mask = 0
+
+[node name="Floor_21_17" type="StaticBody3D" parent="Geometry/Generated/P1_Room_2" unique_id=421878249 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 0, 70)
+collision_mask = 0
+
+[node name="Floor_22_17" type="StaticBody3D" parent="Geometry/Generated/P1_Room_2" unique_id=394509938 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0, 70)
+collision_mask = 0
+
+[node name="Wall_22_17_E" type="StaticBody3D" parent="Geometry/Generated/P1_Room_2" unique_id=540990737 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 92, 0.2, 70)
+collision_mask = 0
+
+[node name="Wall_22_17_N" type="StaticBody3D" parent="Geometry/Generated/P1_Room_2" unique_id=2123332106 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0.2, 68)
+collision_mask = 0
+
+[node name="Floor_18_18" type="StaticBody3D" parent="Geometry/Generated/P1_Room_2" unique_id=1336018282 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 0, 74)
+collision_mask = 0
+
+[node name="Wall_18_18_W" type="StaticBody3D" parent="Geometry/Generated/P1_Room_2" unique_id=1893251915 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 72, 0.2, 74)
+collision_mask = 0
+
+[node name="Floor_19_18" type="StaticBody3D" parent="Geometry/Generated/P1_Room_2" unique_id=747867208 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78, 0, 74)
+collision_mask = 0
+
+[node name="Floor_20_18" type="StaticBody3D" parent="Geometry/Generated/P1_Room_2" unique_id=1333838813 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 0, 74)
+collision_mask = 0
+
+[node name="Floor_21_18" type="StaticBody3D" parent="Geometry/Generated/P1_Room_2" unique_id=764366092 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 0, 74)
+collision_mask = 0
+
+[node name="Floor_22_18" type="StaticBody3D" parent="Geometry/Generated/P1_Room_2" unique_id=1203459055 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0, 74)
+collision_mask = 0
+
+[node name="Wall_22_18_E" type="StaticBody3D" parent="Geometry/Generated/P1_Room_2" unique_id=268733307 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 92, 0.2, 74)
+collision_mask = 0
+
+[node name="Floor_18_19" type="StaticBody3D" parent="Geometry/Generated/P1_Room_2" unique_id=1697354993 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 0, 78)
+collision_mask = 0
+
+[node name="Wall_18_19_W" type="StaticBody3D" parent="Geometry/Generated/P1_Room_2" unique_id=980447663 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 72, 0.2, 78)
+collision_mask = 0
+
+[node name="Wall_18_19_S" type="StaticBody3D" parent="Geometry/Generated/P1_Room_2" unique_id=1268429587 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 0.2, 80)
+collision_mask = 0
+
+[node name="Floor_19_19" type="StaticBody3D" parent="Geometry/Generated/P1_Room_2" unique_id=1122747016 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78, 0, 78)
+collision_mask = 0
+
+[node name="Wall_19_19_S" type="StaticBody3D" parent="Geometry/Generated/P1_Room_2" unique_id=1428317311 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78, 0.2, 80)
+collision_mask = 0
+
+[node name="Floor_20_19" type="StaticBody3D" parent="Geometry/Generated/P1_Room_2" unique_id=1768083702 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 0, 78)
+collision_mask = 0
+
+[node name="Wall_20_19_S" type="StaticBody3D" parent="Geometry/Generated/P1_Room_2" unique_id=1819368760 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 0.2, 80)
+collision_mask = 0
+
+[node name="Floor_21_19" type="StaticBody3D" parent="Geometry/Generated/P1_Room_2" unique_id=143374109 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 0, 78)
+collision_mask = 0
+
+[node name="Wall_21_19_S" type="StaticBody3D" parent="Geometry/Generated/P1_Room_2" unique_id=109942843 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 0.2, 80)
+collision_mask = 0
+
+[node name="Floor_22_19" type="StaticBody3D" parent="Geometry/Generated/P1_Room_2" unique_id=1993033139 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0, 78)
+collision_mask = 0
+
+[node name="Wall_22_19_E" type="StaticBody3D" parent="Geometry/Generated/P1_Room_2" unique_id=1369876106 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 92, 0.2, 78)
+collision_mask = 0
+
+[node name="Wall_22_19_S" type="StaticBody3D" parent="Geometry/Generated/P1_Room_2" unique_id=1990572147 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0.2, 80)
+collision_mask = 0
+
+[node name="P1_Yard_0" type="Node3D" parent="Geometry/Generated" unique_id=384890589]
+metadata/lb_unit_id = "P1_Yard_0"
+metadata/lb_unit_kind = "pad"
+metadata/lb_unit_layer = "poi_1"
+metadata/lb_unit_type = ""
+metadata/lb_rect = Rect2i(24, 8, 2, 2)
+metadata/lb_base_y = 0.0
+metadata/lb_walls = false
+metadata/lb_seed = 1877547876
+
+[node name="Floor_24_8" type="StaticBody3D" parent="Geometry/Generated/P1_Yard_0" unique_id=2141683120 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 0, 34)
+collision_mask = 0
+
+[node name="Floor_25_8" type="StaticBody3D" parent="Geometry/Generated/P1_Yard_0" unique_id=62498039 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102, 0, 34)
+collision_mask = 0
+
+[node name="Floor_24_9" type="StaticBody3D" parent="Geometry/Generated/P1_Yard_0" unique_id=878039039 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 0, 38)
+collision_mask = 0
+
+[node name="Floor_25_9" type="StaticBody3D" parent="Geometry/Generated/P1_Yard_0" unique_id=823851050 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102, 0, 38)
+collision_mask = 0
+
+[node name="POI_2_Plot" type="Node3D" parent="Geometry/Generated" unique_id=1872286820]
+metadata/lb_unit_id = "POI_2_Plot"
+metadata/lb_unit_kind = "pad"
+metadata/lb_unit_layer = "ground"
+metadata/lb_unit_type = "outpost"
+metadata/lb_rect = Rect2i(1, 25, 12, 16)
+metadata/lb_base_y = 0.0
+metadata/lb_walls = false
+metadata/lb_seed = 896602297
+metadata/lb_poi_layer = "poi_2"
+metadata/lb_cells = [Vector2i(1, 25), Vector2i(2, 25), Vector2i(3, 25), Vector2i(4, 25), Vector2i(5, 25), Vector2i(6, 25), Vector2i(7, 25), Vector2i(8, 25), Vector2i(9, 25), Vector2i(10, 25), Vector2i(11, 25), Vector2i(12, 25), Vector2i(1, 26), Vector2i(5, 26), Vector2i(6, 26), Vector2i(7, 26), Vector2i(8, 26), Vector2i(9, 26), Vector2i(10, 26), Vector2i(11, 26), Vector2i(12, 26), Vector2i(1, 27), Vector2i(5, 27), Vector2i(6, 27), Vector2i(7, 27), Vector2i(8, 27), Vector2i(9, 27), Vector2i(10, 27), Vector2i(11, 27), Vector2i(12, 27), Vector2i(1, 28), Vector2i(5, 28), Vector2i(6, 28), Vector2i(7, 28), Vector2i(8, 28), Vector2i(9, 28), Vector2i(10, 28), Vector2i(11, 28), Vector2i(12, 28), Vector2i(1, 29), Vector2i(5, 29), Vector2i(6, 29), Vector2i(7, 29), Vector2i(8, 29), Vector2i(9, 29), Vector2i(10, 29), Vector2i(11, 29), Vector2i(12, 29), Vector2i(1, 30), Vector2i(2, 30), Vector2i(3, 30), Vector2i(5, 30), Vector2i(6, 30), Vector2i(7, 30), Vector2i(8, 30), Vector2i(9, 30), Vector2i(10, 30), Vector2i(11, 30), Vector2i(12, 30), Vector2i(1, 31), Vector2i(2, 31), Vector2i(3, 31), Vector2i(8, 31), Vector2i(9, 31), Vector2i(10, 31), Vector2i(11, 31), Vector2i(12, 31), Vector2i(1, 32), Vector2i(2, 32), Vector2i(3, 32), Vector2i(12, 32), Vector2i(1, 33), Vector2i(2, 33), Vector2i(3, 33), Vector2i(8, 33), Vector2i(9, 33), Vector2i(12, 33), Vector2i(1, 34), Vector2i(2, 34), Vector2i(3, 34), Vector2i(5, 34), Vector2i(6, 34), Vector2i(7, 34), Vector2i(8, 34), Vector2i(9, 34), Vector2i(10, 34), Vector2i(11, 34), Vector2i(12, 34), Vector2i(1, 35), Vector2i(2, 35), Vector2i(3, 35), Vector2i(8, 35), Vector2i(9, 35), Vector2i(10, 35), Vector2i(11, 35), Vector2i(12, 35), Vector2i(1, 36), Vector2i(2, 36), Vector2i(3, 36), Vector2i(8, 36), Vector2i(9, 36), Vector2i(10, 36), Vector2i(11, 36), Vector2i(12, 36), Vector2i(1, 37), Vector2i(2, 37), Vector2i(3, 37), Vector2i(8, 37), Vector2i(9, 37), Vector2i(10, 37), Vector2i(11, 37), Vector2i(12, 37), Vector2i(1, 38), Vector2i(8, 38), Vector2i(9, 38), Vector2i(10, 38), Vector2i(11, 38), Vector2i(12, 38), Vector2i(1, 39), Vector2i(4, 39), Vector2i(5, 39), Vector2i(6, 39), Vector2i(7, 39), Vector2i(8, 39), Vector2i(9, 39), Vector2i(10, 39), Vector2i(11, 39), Vector2i(12, 39), Vector2i(1, 40), Vector2i(2, 40), Vector2i(3, 40), Vector2i(4, 40), Vector2i(5, 40), Vector2i(6, 40), Vector2i(7, 40), Vector2i(8, 40), Vector2i(9, 40), Vector2i(10, 40), Vector2i(11, 40), Vector2i(12, 40)]
+
+[node name="Floor_1_25" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=865178644 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 102)
+collision_mask = 0
+
+[node name="Floor_2_25" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=738527610 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 102)
+collision_mask = 0
+
+[node name="Floor_3_25" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=962762605 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 102)
+collision_mask = 0
+
+[node name="Floor_4_25" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=398847666 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 102)
+collision_mask = 0
+
+[node name="Floor_5_25" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1084777727 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 102)
+collision_mask = 0
+
+[node name="Floor_6_25" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1619008260 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 102)
+collision_mask = 0
+
+[node name="Floor_7_25" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1582398185 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 102)
+collision_mask = 0
+
+[node name="Floor_8_25" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1698272424 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 102)
+collision_mask = 0
+
+[node name="Floor_9_25" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1974209056 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0, 102)
+collision_mask = 0
+
+[node name="Floor_10_25" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1583811135 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, 102)
+collision_mask = 0
+
+[node name="Floor_11_25" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=18221175 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 0, 102)
+collision_mask = 0
+
+[node name="Floor_12_25" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1420109180 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 102)
+collision_mask = 0
+
+[node name="Floor_1_26" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1767359935 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 106)
+collision_mask = 0
+
+[node name="Floor_5_26" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=354505087 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 106)
+collision_mask = 0
+
+[node name="Floor_6_26" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=842011462 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 106)
+collision_mask = 0
+
+[node name="Floor_7_26" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=572648972 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 106)
+collision_mask = 0
+
+[node name="Floor_8_26" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1503965354 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 106)
+collision_mask = 0
+
+[node name="Floor_9_26" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=368694875 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0, 106)
+collision_mask = 0
+
+[node name="Floor_10_26" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=499384711 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, 106)
+collision_mask = 0
+
+[node name="Floor_11_26" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1502249848 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 0, 106)
+collision_mask = 0
+
+[node name="Floor_12_26" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1187050246 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 106)
+collision_mask = 0
+
+[node name="Floor_1_27" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=446396331 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 110)
+collision_mask = 0
+
+[node name="Floor_5_27" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=357366260 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 110)
+collision_mask = 0
+
+[node name="Floor_6_27" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1817699431 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 110)
+collision_mask = 0
+
+[node name="Floor_7_27" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1050669146 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 110)
+collision_mask = 0
+
+[node name="Floor_8_27" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=26106616 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 110)
+collision_mask = 0
+
+[node name="Floor_9_27" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1128863785 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0, 110)
+collision_mask = 0
+
+[node name="Floor_10_27" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1795400544 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, 110)
+collision_mask = 0
+
+[node name="Floor_11_27" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1432310517 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 0, 110)
+collision_mask = 0
+
+[node name="Floor_12_27" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=804295126 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 110)
+collision_mask = 0
+
+[node name="Floor_1_28" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1128350917 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 114)
+collision_mask = 0
+
+[node name="Floor_5_28" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1398578171 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 114)
+collision_mask = 0
+
+[node name="Floor_6_28" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=735799375 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 114)
+collision_mask = 0
+
+[node name="Floor_7_28" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=320737527 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 114)
+collision_mask = 0
+
+[node name="Floor_8_28" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1676805236 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 114)
+collision_mask = 0
+
+[node name="Floor_9_28" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=925110058 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0, 114)
+collision_mask = 0
+
+[node name="Floor_10_28" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=517774275 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, 114)
+collision_mask = 0
+
+[node name="Floor_11_28" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=881824490 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 0, 114)
+collision_mask = 0
+
+[node name="Floor_12_28" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=14173594 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 114)
+collision_mask = 0
+
+[node name="Floor_1_29" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=365234870 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 118)
+collision_mask = 0
+
+[node name="Floor_5_29" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1703898010 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 118)
+collision_mask = 0
+
+[node name="Floor_6_29" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1566298663 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 118)
+collision_mask = 0
+
+[node name="Floor_7_29" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1994267650 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 118)
+collision_mask = 0
+
+[node name="Floor_8_29" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=458568972 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 118)
+collision_mask = 0
+
+[node name="Floor_9_29" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=790187860 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0, 118)
+collision_mask = 0
+
+[node name="Floor_10_29" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=67206142 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, 118)
+collision_mask = 0
+
+[node name="Floor_11_29" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=582649728 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 0, 118)
+collision_mask = 0
+
+[node name="Floor_12_29" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1094057292 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 118)
+collision_mask = 0
+
+[node name="Floor_1_30" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1515759657 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 122)
+collision_mask = 0
+
+[node name="Floor_2_30" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=60797139 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 122)
+collision_mask = 0
+
+[node name="Floor_3_30" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=282803012 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 122)
+collision_mask = 0
+
+[node name="Floor_5_30" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1011901427 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 122)
+collision_mask = 0
+
+[node name="Floor_6_30" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=370036424 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 122)
+collision_mask = 0
+
+[node name="Floor_7_30" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=21918195 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 122)
+collision_mask = 0
+
+[node name="Floor_8_30" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1261613036 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 122)
+collision_mask = 0
+
+[node name="Floor_9_30" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1559898296 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0, 122)
+collision_mask = 0
+
+[node name="Floor_10_30" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=438282533 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, 122)
+collision_mask = 0
+
+[node name="Floor_11_30" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1131298082 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 0, 122)
+collision_mask = 0
+
+[node name="Floor_12_30" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=206590428 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 122)
+collision_mask = 0
+
+[node name="Floor_1_31" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=883310484 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 126)
+collision_mask = 0
+
+[node name="Floor_2_31" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=2067943852 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 126)
+collision_mask = 0
+
+[node name="Floor_3_31" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1848585307 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 126)
+collision_mask = 0
+
+[node name="Floor_8_31" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1116380528 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 126)
+collision_mask = 0
+
+[node name="Floor_9_31" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=98642718 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0, 126)
+collision_mask = 0
+
+[node name="Floor_10_31" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=749707959 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, 126)
+collision_mask = 0
+
+[node name="Floor_11_31" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=239346885 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 0, 126)
+collision_mask = 0
+
+[node name="Floor_12_31" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=64735920 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 126)
+collision_mask = 0
+
+[node name="Floor_1_32" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1842261729 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 130)
+collision_mask = 0
+
+[node name="Floor_2_32" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=393446928 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 130)
+collision_mask = 0
+
+[node name="Floor_3_32" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1138022122 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 130)
+collision_mask = 0
+
+[node name="Floor_12_32" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=425690124 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 130)
+collision_mask = 0
+
+[node name="Floor_1_33" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1144017983 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 134)
+collision_mask = 0
+
+[node name="Floor_2_33" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=841906900 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 134)
+collision_mask = 0
+
+[node name="Floor_3_33" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=115587657 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 134)
+collision_mask = 0
+
+[node name="Floor_8_33" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1207221576 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 134)
+collision_mask = 0
+
+[node name="Floor_9_33" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=276350204 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0, 134)
+collision_mask = 0
+
+[node name="Floor_12_33" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1150441242 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 134)
+collision_mask = 0
+
+[node name="Floor_1_34" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=950784850 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 138)
+collision_mask = 0
+
+[node name="Floor_2_34" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=38532975 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 138)
+collision_mask = 0
+
+[node name="Floor_3_34" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=363097385 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 138)
+collision_mask = 0
+
+[node name="Floor_5_34" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=2111163835 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 138)
+collision_mask = 0
+
+[node name="Floor_6_34" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1243438193 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 138)
+collision_mask = 0
+
+[node name="Floor_7_34" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1306528168 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 138)
+collision_mask = 0
+
+[node name="Floor_8_34" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=338723297 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 138)
+collision_mask = 0
+
+[node name="Floor_9_34" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=335421566 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0, 138)
+collision_mask = 0
+
+[node name="Floor_10_34" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=2031320534 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, 138)
+collision_mask = 0
+
+[node name="Floor_11_34" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1758001368 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 0, 138)
+collision_mask = 0
+
+[node name="Floor_12_34" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=755768013 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 138)
+collision_mask = 0
+
+[node name="Floor_1_35" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=751650399 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 142)
+collision_mask = 0
+
+[node name="Floor_2_35" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1500389897 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 142)
+collision_mask = 0
+
+[node name="Floor_3_35" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=685432271 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 142)
+collision_mask = 0
+
+[node name="Floor_8_35" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1985052854 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 142)
+collision_mask = 0
+
+[node name="Floor_9_35" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=690241935 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0, 142)
+collision_mask = 0
+
+[node name="Floor_10_35" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1242902984 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, 142)
+collision_mask = 0
+
+[node name="Floor_11_35" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1951438175 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 0, 142)
+collision_mask = 0
+
+[node name="Floor_12_35" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=543433812 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 142)
+collision_mask = 0
+
+[node name="Floor_1_36" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1503940991 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 146)
+collision_mask = 0
+
+[node name="Floor_2_36" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1948761817 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 146)
+collision_mask = 0
+
+[node name="Floor_3_36" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1220893346 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 146)
+collision_mask = 0
+
+[node name="Floor_8_36" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=951659713 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 146)
+collision_mask = 0
+
+[node name="Floor_9_36" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1413588118 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0, 146)
+collision_mask = 0
+
+[node name="Floor_10_36" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=974519425 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, 146)
+collision_mask = 0
+
+[node name="Floor_11_36" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=197970451 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 0, 146)
+collision_mask = 0
+
+[node name="Floor_12_36" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1299204484 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 146)
+collision_mask = 0
+
+[node name="Floor_1_37" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=2002376552 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 150)
+collision_mask = 0
+
+[node name="Floor_2_37" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1265056099 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 150)
+collision_mask = 0
+
+[node name="Floor_3_37" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=861846770 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 150)
+collision_mask = 0
+
+[node name="Floor_8_37" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=13448322 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 150)
+collision_mask = 0
+
+[node name="Floor_9_37" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1215363356 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0, 150)
+collision_mask = 0
+
+[node name="Floor_10_37" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1173483431 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, 150)
+collision_mask = 0
+
+[node name="Floor_11_37" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1034879187 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 0, 150)
+collision_mask = 0
+
+[node name="Floor_12_37" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=834354307 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 150)
+collision_mask = 0
+
+[node name="Floor_1_38" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=63740413 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 154)
+collision_mask = 0
+
+[node name="Floor_8_38" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1548903246 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 154)
+collision_mask = 0
+
+[node name="Floor_9_38" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=386376635 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0, 154)
+collision_mask = 0
+
+[node name="Floor_10_38" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=340443303 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, 154)
+collision_mask = 0
+
+[node name="Floor_11_38" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=262531036 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 0, 154)
+collision_mask = 0
+
+[node name="Floor_12_38" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1773009617 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 154)
+collision_mask = 0
+
+[node name="Floor_1_39" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1093898061 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 158)
+collision_mask = 0
+
+[node name="Floor_4_39" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=668626124 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 158)
+collision_mask = 0
+
+[node name="Floor_5_39" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=312561951 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 158)
+collision_mask = 0
+
+[node name="Floor_6_39" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1086495997 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 158)
+collision_mask = 0
+
+[node name="Floor_7_39" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=2020626390 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 158)
+collision_mask = 0
+
+[node name="Floor_8_39" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=672129759 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 158)
+collision_mask = 0
+
+[node name="Floor_9_39" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=498059505 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0, 158)
+collision_mask = 0
+
+[node name="Floor_10_39" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=255995269 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, 158)
+collision_mask = 0
+
+[node name="Floor_11_39" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1071978140 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 0, 158)
+collision_mask = 0
+
+[node name="Floor_12_39" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=446217026 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 158)
+collision_mask = 0
+
+[node name="Floor_1_40" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1066932819 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 162)
+collision_mask = 0
+
+[node name="Floor_2_40" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=63044731 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 162)
+collision_mask = 0
+
+[node name="Floor_3_40" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=851435489 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 162)
+collision_mask = 0
+
+[node name="Floor_4_40" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1931591740 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 162)
+collision_mask = 0
+
+[node name="Floor_5_40" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1830870044 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 162)
+collision_mask = 0
+
+[node name="Floor_6_40" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1186077554 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 162)
+collision_mask = 0
+
+[node name="Floor_7_40" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=95239281 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 162)
+collision_mask = 0
+
+[node name="Floor_8_40" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=970113878 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 162)
+collision_mask = 0
+
+[node name="Floor_9_40" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=163540662 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0, 162)
+collision_mask = 0
+
+[node name="Floor_10_40" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1406193728 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, 162)
+collision_mask = 0
+
+[node name="Floor_11_40" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=819075216 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 0, 162)
+collision_mask = 0
+
+[node name="Floor_12_40" type="StaticBody3D" parent="Geometry/Generated/POI_2_Plot" unique_id=1075568249 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 162)
+collision_mask = 0
+
+[node name="P2_Room_0" type="Node3D" parent="Geometry/Generated" unique_id=810085642]
+metadata/lb_unit_id = "P2_Room_0"
+metadata/lb_unit_kind = "room"
+metadata/lb_unit_layer = "poi_2"
+metadata/lb_unit_type = "guardroom"
+metadata/lb_rect = Rect2i(4, 31, 4, 3)
+metadata/lb_base_y = 0.0
+metadata/lb_walls = true
+metadata/lb_seed = 1389032646
+
+[node name="Floor_4_31" type="StaticBody3D" parent="Geometry/Generated/P2_Room_0" unique_id=1406785221 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 126)
+collision_mask = 0
+
+[node name="Wall_4_31_W" type="StaticBody3D" parent="Geometry/Generated/P2_Room_0" unique_id=1049791359 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 16, 0.2, 126)
+collision_mask = 0
+
+[node name="Floor_5_31" type="StaticBody3D" parent="Geometry/Generated/P2_Room_0" unique_id=605621039 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 126)
+collision_mask = 0
+
+[node name="Wall_5_31_N" type="StaticBody3D" parent="Geometry/Generated/P2_Room_0" unique_id=601882848 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0.2, 124)
+collision_mask = 0
+
+[node name="Floor_6_31" type="StaticBody3D" parent="Geometry/Generated/P2_Room_0" unique_id=481456706 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 126)
+collision_mask = 0
+
+[node name="Wall_6_31_N" type="StaticBody3D" parent="Geometry/Generated/P2_Room_0" unique_id=779120685 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0.2, 124)
+collision_mask = 0
+
+[node name="Floor_7_31" type="StaticBody3D" parent="Geometry/Generated/P2_Room_0" unique_id=322843640 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 126)
+collision_mask = 0
+
+[node name="Wall_7_31_E" type="StaticBody3D" parent="Geometry/Generated/P2_Room_0" unique_id=1980772130 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 32, 0.2, 126)
+collision_mask = 0
+
+[node name="Wall_7_31_N" type="StaticBody3D" parent="Geometry/Generated/P2_Room_0" unique_id=1758544633 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0.2, 124)
+collision_mask = 0
+
+[node name="Floor_4_32" type="StaticBody3D" parent="Geometry/Generated/P2_Room_0" unique_id=772102388 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 130)
+collision_mask = 0
+
+[node name="Wall_4_32_W" type="StaticBody3D" parent="Geometry/Generated/P2_Room_0" unique_id=71777474 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 16, 0.2, 130)
+collision_mask = 0
+
+[node name="Floor_5_32" type="StaticBody3D" parent="Geometry/Generated/P2_Room_0" unique_id=224234610 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 130)
+collision_mask = 0
+
+[node name="Floor_6_32" type="StaticBody3D" parent="Geometry/Generated/P2_Room_0" unique_id=2044310372 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 130)
+collision_mask = 0
+
+[node name="Floor_7_32" type="StaticBody3D" parent="Geometry/Generated/P2_Room_0" unique_id=1621800732 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 130)
+collision_mask = 0
+
+[node name="Floor_4_33" type="StaticBody3D" parent="Geometry/Generated/P2_Room_0" unique_id=424555435 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 134)
+collision_mask = 0
+
+[node name="Wall_4_33_W" type="StaticBody3D" parent="Geometry/Generated/P2_Room_0" unique_id=1183913130 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 16, 0.2, 134)
+collision_mask = 0
+
+[node name="Floor_5_33" type="StaticBody3D" parent="Geometry/Generated/P2_Room_0" unique_id=1996431635 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 134)
+collision_mask = 0
+
+[node name="Wall_5_33_S" type="StaticBody3D" parent="Geometry/Generated/P2_Room_0" unique_id=857108337 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0.2, 136)
+collision_mask = 0
+
+[node name="Floor_6_33" type="StaticBody3D" parent="Geometry/Generated/P2_Room_0" unique_id=1539314961 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 134)
+collision_mask = 0
+
+[node name="Wall_6_33_S" type="StaticBody3D" parent="Geometry/Generated/P2_Room_0" unique_id=1857971958 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0.2, 136)
+collision_mask = 0
+
+[node name="Floor_7_33" type="StaticBody3D" parent="Geometry/Generated/P2_Room_0" unique_id=1109760560 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 134)
+collision_mask = 0
+
+[node name="Wall_7_33_E" type="StaticBody3D" parent="Geometry/Generated/P2_Room_0" unique_id=481413516 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 32, 0.2, 134)
+collision_mask = 0
+
+[node name="Wall_7_33_S" type="StaticBody3D" parent="Geometry/Generated/P2_Room_0" unique_id=599634249 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0.2, 136)
+collision_mask = 0
+
+[node name="P2_Corridor_0" type="Node3D" parent="Geometry/Generated" unique_id=42122196]
+metadata/lb_unit_id = "P2_Corridor_0"
+metadata/lb_unit_kind = "corridor"
+metadata/lb_unit_layer = "poi_2"
+metadata/lb_unit_type = ""
+metadata/lb_rect = Rect2i(8, 32, 2, 1)
+metadata/lb_base_y = 0.0
+metadata/lb_walls = true
+metadata/lb_seed = 3650585252
+metadata/lb_axis = Vector2i(1, 0)
+
+[node name="Floor_8_32" type="StaticBody3D" parent="Geometry/Generated/P2_Corridor_0" unique_id=1935704197 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 130)
+collision_mask = 0
+
+[node name="Wall_8_32_S" type="StaticBody3D" parent="Geometry/Generated/P2_Corridor_0" unique_id=513133996 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0.2, 132)
+collision_mask = 0
+
+[node name="Wall_8_32_N" type="StaticBody3D" parent="Geometry/Generated/P2_Corridor_0" unique_id=1903782646 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0.2, 128)
+collision_mask = 0
+
+[node name="Floor_9_32" type="StaticBody3D" parent="Geometry/Generated/P2_Corridor_0" unique_id=1172844349 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0, 130)
+collision_mask = 0
+
+[node name="Wall_9_32_S" type="StaticBody3D" parent="Geometry/Generated/P2_Corridor_0" unique_id=589884730 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0.2, 132)
+collision_mask = 0
+
+[node name="Wall_9_32_N" type="StaticBody3D" parent="Geometry/Generated/P2_Corridor_0" unique_id=2087606977 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0.2, 128)
+collision_mask = 0
+
+[node name="P2_Room_1" type="Node3D" parent="Geometry/Generated" unique_id=2003201521]
+metadata/lb_unit_id = "P2_Room_1"
+metadata/lb_unit_kind = "room"
+metadata/lb_unit_layer = "poi_2"
+metadata/lb_unit_type = "bedroom"
+metadata/lb_rect = Rect2i(10, 32, 2, 2)
+metadata/lb_base_y = 0.0
+metadata/lb_walls = true
+metadata/lb_seed = 274926239
+
+[node name="Floor_10_32" type="StaticBody3D" parent="Geometry/Generated/P2_Room_1" unique_id=477687368 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, 130)
+collision_mask = 0
+
+[node name="Wall_10_32_N" type="StaticBody3D" parent="Geometry/Generated/P2_Room_1" unique_id=999542106 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0.2, 128)
+collision_mask = 0
+
+[node name="Floor_11_32" type="StaticBody3D" parent="Geometry/Generated/P2_Room_1" unique_id=503401159 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 0, 130)
+collision_mask = 0
+
+[node name="Wall_11_32_E" type="StaticBody3D" parent="Geometry/Generated/P2_Room_1" unique_id=159436301 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 48, 0.2, 130)
+collision_mask = 0
+
+[node name="Wall_11_32_N" type="StaticBody3D" parent="Geometry/Generated/P2_Room_1" unique_id=65512264 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 0.2, 128)
+collision_mask = 0
+
+[node name="Floor_10_33" type="StaticBody3D" parent="Geometry/Generated/P2_Room_1" unique_id=2089361607 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, 134)
+collision_mask = 0
+
+[node name="Wall_10_33_W" type="StaticBody3D" parent="Geometry/Generated/P2_Room_1" unique_id=498120559 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 40, 0.2, 134)
+collision_mask = 0
+
+[node name="Wall_10_33_S" type="StaticBody3D" parent="Geometry/Generated/P2_Room_1" unique_id=685363691 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0.2, 136)
+collision_mask = 0
+
+[node name="Floor_11_33" type="StaticBody3D" parent="Geometry/Generated/P2_Room_1" unique_id=616537922 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 0, 134)
+collision_mask = 0
+
+[node name="Wall_11_33_E" type="StaticBody3D" parent="Geometry/Generated/P2_Room_1" unique_id=757118755 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 48, 0.2, 134)
+collision_mask = 0
+
+[node name="Wall_11_33_S" type="StaticBody3D" parent="Geometry/Generated/P2_Room_1" unique_id=1126761057 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 0.2, 136)
+collision_mask = 0
+
+[node name="P2_Corridor_1" type="Node3D" parent="Geometry/Generated" unique_id=1627847724]
+metadata/lb_unit_id = "P2_Corridor_1"
+metadata/lb_unit_kind = "corridor"
+metadata/lb_unit_layer = "poi_2"
+metadata/lb_unit_type = ""
+metadata/lb_rect = Rect2i(4, 34, 1, 1)
+metadata/lb_base_y = 0.0
+metadata/lb_walls = true
+metadata/lb_seed = 3650585253
+metadata/lb_axis = Vector2i(0, 1)
+
+[node name="Floor_4_34" type="StaticBody3D" parent="Geometry/Generated/P2_Corridor_1" unique_id=82183881 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 138)
+collision_mask = 0
+
+[node name="Wall_4_34_E" type="StaticBody3D" parent="Geometry/Generated/P2_Corridor_1" unique_id=497845555 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20, 0.2, 138)
+collision_mask = 0
+
+[node name="Wall_4_34_W" type="StaticBody3D" parent="Geometry/Generated/P2_Corridor_1" unique_id=108700743 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 16, 0.2, 138)
+collision_mask = 0
+
+[node name="P2_Room_2" type="Node3D" parent="Geometry/Generated" unique_id=1898596349]
+metadata/lb_unit_id = "P2_Room_2"
+metadata/lb_unit_kind = "room"
+metadata/lb_unit_layer = "poi_2"
+metadata/lb_unit_type = "smithy"
+metadata/lb_rect = Rect2i(4, 35, 4, 4)
+metadata/lb_base_y = 0.0
+metadata/lb_walls = true
+metadata/lb_seed = 3735985430
+
+[node name="Floor_4_35" type="StaticBody3D" parent="Geometry/Generated/P2_Room_2" unique_id=1804741142 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 142)
+collision_mask = 0
+
+[node name="Wall_4_35_W" type="StaticBody3D" parent="Geometry/Generated/P2_Room_2" unique_id=2093452586 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 16, 0.2, 142)
+collision_mask = 0
+
+[node name="Floor_5_35" type="StaticBody3D" parent="Geometry/Generated/P2_Room_2" unique_id=584518495 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 142)
+collision_mask = 0
+
+[node name="Wall_5_35_N" type="StaticBody3D" parent="Geometry/Generated/P2_Room_2" unique_id=630520720 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0.2, 140)
+collision_mask = 0
+
+[node name="Floor_6_35" type="StaticBody3D" parent="Geometry/Generated/P2_Room_2" unique_id=1431839079 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 142)
+collision_mask = 0
+
+[node name="Wall_6_35_N" type="StaticBody3D" parent="Geometry/Generated/P2_Room_2" unique_id=157826775 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0.2, 140)
+collision_mask = 0
+
+[node name="Floor_7_35" type="StaticBody3D" parent="Geometry/Generated/P2_Room_2" unique_id=1723570152 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 142)
+collision_mask = 0
+
+[node name="Wall_7_35_E" type="StaticBody3D" parent="Geometry/Generated/P2_Room_2" unique_id=1996872811 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 32, 0.2, 142)
+collision_mask = 0
+
+[node name="Wall_7_35_N" type="StaticBody3D" parent="Geometry/Generated/P2_Room_2" unique_id=947841539 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0.2, 140)
+collision_mask = 0
+
+[node name="Floor_4_36" type="StaticBody3D" parent="Geometry/Generated/P2_Room_2" unique_id=1235182483 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 146)
+collision_mask = 0
+
+[node name="Wall_4_36_W" type="StaticBody3D" parent="Geometry/Generated/P2_Room_2" unique_id=2040850868 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 16, 0.2, 146)
+collision_mask = 0
+
+[node name="Floor_5_36" type="StaticBody3D" parent="Geometry/Generated/P2_Room_2" unique_id=2029050036 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 146)
+collision_mask = 0
+
+[node name="Floor_6_36" type="StaticBody3D" parent="Geometry/Generated/P2_Room_2" unique_id=440261261 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 146)
+collision_mask = 0
+
+[node name="Floor_7_36" type="StaticBody3D" parent="Geometry/Generated/P2_Room_2" unique_id=162802790 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 146)
+collision_mask = 0
+
+[node name="Wall_7_36_E" type="StaticBody3D" parent="Geometry/Generated/P2_Room_2" unique_id=509994081 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 32, 0.2, 146)
+collision_mask = 0
+
+[node name="Floor_4_37" type="StaticBody3D" parent="Geometry/Generated/P2_Room_2" unique_id=1624262577 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 150)
+collision_mask = 0
+
+[node name="Wall_4_37_W" type="StaticBody3D" parent="Geometry/Generated/P2_Room_2" unique_id=618167213 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 16, 0.2, 150)
+collision_mask = 0
+
+[node name="Floor_5_37" type="StaticBody3D" parent="Geometry/Generated/P2_Room_2" unique_id=1408499589 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 150)
+collision_mask = 0
+
+[node name="Floor_6_37" type="StaticBody3D" parent="Geometry/Generated/P2_Room_2" unique_id=725242634 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 150)
+collision_mask = 0
+
+[node name="Floor_7_37" type="StaticBody3D" parent="Geometry/Generated/P2_Room_2" unique_id=771402209 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 150)
+collision_mask = 0
+
+[node name="Wall_7_37_E" type="StaticBody3D" parent="Geometry/Generated/P2_Room_2" unique_id=415637751 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 32, 0.2, 150)
+collision_mask = 0
+
+[node name="Floor_4_38" type="StaticBody3D" parent="Geometry/Generated/P2_Room_2" unique_id=1049526333 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 154)
+collision_mask = 0
+
+[node name="Wall_4_38_S" type="StaticBody3D" parent="Geometry/Generated/P2_Room_2" unique_id=1571266293 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0.2, 156)
+collision_mask = 0
+
+[node name="Floor_5_38" type="StaticBody3D" parent="Geometry/Generated/P2_Room_2" unique_id=172323483 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 154)
+collision_mask = 0
+
+[node name="Wall_5_38_S" type="StaticBody3D" parent="Geometry/Generated/P2_Room_2" unique_id=268151961 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0.2, 156)
+collision_mask = 0
+
+[node name="Floor_6_38" type="StaticBody3D" parent="Geometry/Generated/P2_Room_2" unique_id=1977882475 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 154)
+collision_mask = 0
+
+[node name="Wall_6_38_S" type="StaticBody3D" parent="Geometry/Generated/P2_Room_2" unique_id=899631984 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0.2, 156)
+collision_mask = 0
+
+[node name="Floor_7_38" type="StaticBody3D" parent="Geometry/Generated/P2_Room_2" unique_id=874568321 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 154)
+collision_mask = 0
+
+[node name="Wall_7_38_E" type="StaticBody3D" parent="Geometry/Generated/P2_Room_2" unique_id=1252823237 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 32, 0.2, 154)
+collision_mask = 0
+
+[node name="Wall_7_38_S" type="StaticBody3D" parent="Geometry/Generated/P2_Room_2" unique_id=575197212 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0.2, 156)
+collision_mask = 0
+
+[node name="P2_Corridor_2" type="Node3D" parent="Geometry/Generated" unique_id=1323441449]
+metadata/lb_unit_id = "P2_Corridor_2"
+metadata/lb_unit_kind = "corridor"
+metadata/lb_unit_layer = "poi_2"
+metadata/lb_unit_type = ""
+metadata/lb_rect = Rect2i(4, 30, 1, 1)
+metadata/lb_base_y = 0.0
+metadata/lb_walls = true
+metadata/lb_seed = 3650585254
+metadata/lb_axis = Vector2i(0, 1)
+
+[node name="Floor_4_30" type="StaticBody3D" parent="Geometry/Generated/P2_Corridor_2" unique_id=1155300669 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 122)
+collision_mask = 0
+
+[node name="Wall_4_30_E" type="StaticBody3D" parent="Geometry/Generated/P2_Corridor_2" unique_id=878963984 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20, 0.2, 122)
+collision_mask = 0
+
+[node name="Wall_4_30_W" type="StaticBody3D" parent="Geometry/Generated/P2_Corridor_2" unique_id=1673378765 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 16, 0.2, 122)
+collision_mask = 0
+
+[node name="P2_Room_3" type="Node3D" parent="Geometry/Generated" unique_id=1195533763]
+metadata/lb_unit_id = "P2_Room_3"
+metadata/lb_unit_kind = "room"
+metadata/lb_unit_layer = "poi_2"
+metadata/lb_unit_type = "tavern"
+metadata/lb_rect = Rect2i(2, 26, 3, 4)
+metadata/lb_base_y = 0.0
+metadata/lb_walls = true
+metadata/lb_seed = 3430110953
+
+[node name="Floor_2_26" type="StaticBody3D" parent="Geometry/Generated/P2_Room_3" unique_id=1658472826 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 106)
+collision_mask = 0
+
+[node name="Wall_2_26_W" type="StaticBody3D" parent="Geometry/Generated/P2_Room_3" unique_id=58263390 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8, 0.2, 106)
+collision_mask = 0
+
+[node name="Wall_2_26_N" type="StaticBody3D" parent="Geometry/Generated/P2_Room_3" unique_id=553585680 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0.2, 104)
+collision_mask = 0
+
+[node name="Floor_3_26" type="StaticBody3D" parent="Geometry/Generated/P2_Room_3" unique_id=94546074 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 106)
+collision_mask = 0
+
+[node name="Wall_3_26_N" type="StaticBody3D" parent="Geometry/Generated/P2_Room_3" unique_id=1222996175 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0.2, 104)
+collision_mask = 0
+
+[node name="Floor_4_26" type="StaticBody3D" parent="Geometry/Generated/P2_Room_3" unique_id=2085848636 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 106)
+collision_mask = 0
+
+[node name="Wall_4_26_E" type="StaticBody3D" parent="Geometry/Generated/P2_Room_3" unique_id=1911688611 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20, 0.2, 106)
+collision_mask = 0
+
+[node name="Wall_4_26_N" type="StaticBody3D" parent="Geometry/Generated/P2_Room_3" unique_id=1063078343 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0.2, 104)
+collision_mask = 0
+
+[node name="Floor_2_27" type="StaticBody3D" parent="Geometry/Generated/P2_Room_3" unique_id=2130961799 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 110)
+collision_mask = 0
+
+[node name="Wall_2_27_W" type="StaticBody3D" parent="Geometry/Generated/P2_Room_3" unique_id=1833232793 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8, 0.2, 110)
+collision_mask = 0
+
+[node name="Floor_3_27" type="StaticBody3D" parent="Geometry/Generated/P2_Room_3" unique_id=1368665804 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 110)
+collision_mask = 0
+
+[node name="Floor_4_27" type="StaticBody3D" parent="Geometry/Generated/P2_Room_3" unique_id=2085092306 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 110)
+collision_mask = 0
+
+[node name="Wall_4_27_E" type="StaticBody3D" parent="Geometry/Generated/P2_Room_3" unique_id=608427085 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20, 0.2, 110)
+collision_mask = 0
+
+[node name="Floor_2_28" type="StaticBody3D" parent="Geometry/Generated/P2_Room_3" unique_id=694822862 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 114)
+collision_mask = 0
+
+[node name="Wall_2_28_W" type="StaticBody3D" parent="Geometry/Generated/P2_Room_3" unique_id=1329048660 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8, 0.2, 114)
+collision_mask = 0
+
+[node name="Floor_3_28" type="StaticBody3D" parent="Geometry/Generated/P2_Room_3" unique_id=60376273 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 114)
+collision_mask = 0
+
+[node name="Floor_4_28" type="StaticBody3D" parent="Geometry/Generated/P2_Room_3" unique_id=1585373052 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 114)
+collision_mask = 0
+
+[node name="Wall_4_28_E" type="StaticBody3D" parent="Geometry/Generated/P2_Room_3" unique_id=1862288677 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20, 0.2, 114)
+collision_mask = 0
+
+[node name="Floor_2_29" type="StaticBody3D" parent="Geometry/Generated/P2_Room_3" unique_id=1866991875 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 118)
+collision_mask = 0
+
+[node name="Wall_2_29_W" type="StaticBody3D" parent="Geometry/Generated/P2_Room_3" unique_id=360154059 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8, 0.2, 118)
+collision_mask = 0
+
+[node name="Wall_2_29_S" type="StaticBody3D" parent="Geometry/Generated/P2_Room_3" unique_id=1381736256 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0.2, 120)
+collision_mask = 0
+
+[node name="Floor_3_29" type="StaticBody3D" parent="Geometry/Generated/P2_Room_3" unique_id=643576869 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 118)
+collision_mask = 0
+
+[node name="Wall_3_29_S" type="StaticBody3D" parent="Geometry/Generated/P2_Room_3" unique_id=1045788822 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0.2, 120)
+collision_mask = 0
+
+[node name="Floor_4_29" type="StaticBody3D" parent="Geometry/Generated/P2_Room_3" unique_id=1122980315 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 118)
+collision_mask = 0
+
+[node name="Wall_4_29_E" type="StaticBody3D" parent="Geometry/Generated/P2_Room_3" unique_id=402411639 instance=ExtResource("4_c1rvo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20, 0.2, 118)
+collision_mask = 0
+
+[node name="P2_Yard_0" type="Node3D" parent="Geometry/Generated" unique_id=1359526906]
+metadata/lb_unit_id = "P2_Yard_0"
+metadata/lb_unit_kind = "pad"
+metadata/lb_unit_layer = "poi_2"
+metadata/lb_unit_type = ""
+metadata/lb_rect = Rect2i(2, 38, 2, 2)
+metadata/lb_base_y = 0.0
+metadata/lb_walls = false
+metadata/lb_seed = 1916683269
+
+[node name="Floor_2_38" type="StaticBody3D" parent="Geometry/Generated/P2_Yard_0" unique_id=743897270 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 154)
+collision_mask = 0
+
+[node name="Floor_3_38" type="StaticBody3D" parent="Geometry/Generated/P2_Yard_0" unique_id=1164237658 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 154)
+collision_mask = 0
+
+[node name="Floor_2_39" type="StaticBody3D" parent="Geometry/Generated/P2_Yard_0" unique_id=157536427 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 158)
+collision_mask = 0
+
+[node name="Floor_3_39" type="StaticBody3D" parent="Geometry/Generated/P2_Yard_0" unique_id=2065314876 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 158)
+collision_mask = 0
+
+[node name="Road_POI_0_POI_1" type="Node3D" parent="Geometry/Generated" unique_id=701212639]
+metadata/lb_unit_id = "Road_POI_0_POI_1"
+metadata/lb_unit_kind = "road"
+metadata/lb_unit_layer = "ground"
+metadata/lb_unit_type = ""
+metadata/lb_rect = Rect2i(9, 12, 8, 1)
+metadata/lb_base_y = 0.0
+metadata/lb_walls = false
+metadata/lb_seed = 3896101366
+metadata/lb_cells = [Vector2i(9, 12), Vector2i(10, 12), Vector2i(11, 12), Vector2i(12, 12), Vector2i(13, 12), Vector2i(14, 12), Vector2i(15, 12), Vector2i(16, 12)]
+
+[node name="Floor_9_12" type="StaticBody3D" parent="Geometry/Generated/Road_POI_0_POI_1" unique_id=1590548180 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0, 50)
+collision_mask = 0
+
+[node name="Floor_10_12" type="StaticBody3D" parent="Geometry/Generated/Road_POI_0_POI_1" unique_id=240751954 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, 50)
+collision_mask = 0
+
+[node name="Floor_11_12" type="StaticBody3D" parent="Geometry/Generated/Road_POI_0_POI_1" unique_id=1108341665 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 0, 50)
+collision_mask = 0
+
+[node name="Floor_12_12" type="StaticBody3D" parent="Geometry/Generated/Road_POI_0_POI_1" unique_id=672631915 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 50)
+collision_mask = 0
+
+[node name="Floor_13_12" type="StaticBody3D" parent="Geometry/Generated/Road_POI_0_POI_1" unique_id=1088735934 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54, 0, 50)
+collision_mask = 0
+
+[node name="Floor_14_12" type="StaticBody3D" parent="Geometry/Generated/Road_POI_0_POI_1" unique_id=1366475709 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, 0, 50)
+collision_mask = 0
+
+[node name="Floor_15_12" type="StaticBody3D" parent="Geometry/Generated/Road_POI_0_POI_1" unique_id=9881493 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62, 0, 50)
+collision_mask = 0
+
+[node name="Floor_16_12" type="StaticBody3D" parent="Geometry/Generated/Road_POI_0_POI_1" unique_id=2081780706 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66, 0, 50)
+collision_mask = 0
+
+[node name="Road_POI_1_POI_2" type="Node3D" parent="Geometry/Generated" unique_id=1647360333]
+metadata/lb_unit_id = "Road_POI_1_POI_2"
+metadata/lb_unit_kind = "road"
+metadata/lb_unit_layer = "ground"
+metadata/lb_unit_type = ""
+metadata/lb_rect = Rect2i(7, 18, 1, 7)
+metadata/lb_base_y = 0.0
+metadata/lb_walls = false
+metadata/lb_seed = 3896101367
+metadata/lb_cells = [Vector2i(7, 18), Vector2i(7, 19), Vector2i(7, 20), Vector2i(7, 21), Vector2i(7, 22), Vector2i(7, 23), Vector2i(7, 24)]
+
+[node name="Floor_7_18" type="StaticBody3D" parent="Geometry/Generated/Road_POI_1_POI_2" unique_id=1372468831 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 74)
+collision_mask = 0
+
+[node name="Floor_7_19" type="StaticBody3D" parent="Geometry/Generated/Road_POI_1_POI_2" unique_id=261575527 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 78)
+collision_mask = 0
+
+[node name="Floor_7_20" type="StaticBody3D" parent="Geometry/Generated/Road_POI_1_POI_2" unique_id=2044176267 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 82)
+collision_mask = 0
+
+[node name="Floor_7_21" type="StaticBody3D" parent="Geometry/Generated/Road_POI_1_POI_2" unique_id=1525118437 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 86)
+collision_mask = 0
+
+[node name="Floor_7_22" type="StaticBody3D" parent="Geometry/Generated/Road_POI_1_POI_2" unique_id=1023827866 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 90)
+collision_mask = 0
+
+[node name="Floor_7_23" type="StaticBody3D" parent="Geometry/Generated/Road_POI_1_POI_2" unique_id=1919352359 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 94)
+collision_mask = 0
+
+[node name="Floor_7_24" type="StaticBody3D" parent="Geometry/Generated/Road_POI_1_POI_2" unique_id=519258810 instance=ExtResource("3_bw68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 98)
+collision_mask = 0
+
+[node name="Props" type="Node3D" parent="." unique_id=1472241834]
+
+[node name="Generated" type="Node3D" parent="Props" unique_id=1436715723]
+
+[node name="P0_Room_0" type="Node3D" parent="Props/Generated" unique_id=48770768]
+metadata/lb_unit_id = "P0_Room_0"
+
+[node name="Anchor_table" type="StaticBody3D" parent="Props/Generated/P0_Room_0" unique_id=1304597828 instance=ExtResource("5_3scpy")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 23, 0.2, 38)
+collision_mask = 0
+metadata/lb_prop_tag = "table"
+
+[node name="Anchor_0_storage" type="StaticBody3D" parent="Props/Generated/P0_Room_0" unique_id=1216009928 instance=ExtResource("6_r213c")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 22.5, 0.2, 36.5)
+collision_mask = 0
+metadata/lb_prop_tag = "storage"
+
+[node name="Anchor_1_brazier" type="StaticBody3D" parent="Props/Generated/P0_Room_0" unique_id=1817998455 instance=ExtResource("7_qs5ya")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 23.5, 0.2, 39.5)
+collision_mask = 0
+metadata/lb_prop_tag = "brazier"
+
+[node name="storage_nook_0_Lead_storage" type="StaticBody3D" parent="Props/Generated/P0_Room_0" unique_id=1061685331 instance=ExtResource("6_r213c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.2, 28.5)
+collision_mask = 0
+metadata/lb_prop_tag = "storage"
+
+[node name="storage_nook_0_0_clutter" type="StaticBody3D" parent="Props/Generated/P0_Room_0" unique_id=1621077745 instance=ExtResource("6_r213c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 0.2, 28.5)
+collision_mask = 0
+metadata/lb_prop_tag = "clutter"
+
+[node name="Clutter_0_clutter" type="StaticBody3D" parent="Props/Generated/P0_Room_0" unique_id=234771905 instance=ExtResource("6_r213c")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 23.5, 0.2, 32.5)
+collision_mask = 0
+metadata/lb_prop_tag = "clutter"
+
+[node name="Condition_0_debris" type="StaticBody3D" parent="Props/Generated/P0_Room_0" unique_id=1743443072 instance=ExtResource("8_78xuk")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 20.5, 0.2, 42.5)
+collision_mask = 0
+metadata/lb_prop_tag = "debris"
+
+[node name="P0_Room_1" type="Node3D" parent="Props/Generated" unique_id=715295063]
+metadata/lb_unit_id = "P0_Room_1"
+
+[node name="Anchor_counter" type="StaticBody3D" parent="Props/Generated/P0_Room_1" unique_id=1688180909 instance=ExtResource("5_3scpy")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13, 0.2, 52)
+collision_mask = 0
+metadata/lb_prop_tag = "counter"
+
+[node name="Anchor_0_keg" type="StaticBody3D" parent="Props/Generated/P0_Room_1" unique_id=236351972 instance=ExtResource("6_r213c")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13.5, 0.2, 53.5)
+collision_mask = 0
+metadata/lb_prop_tag = "keg"
+
+[node name="Anchor_1_stool" type="StaticBody3D" parent="Props/Generated/P0_Room_1" unique_id=361253691 instance=ExtResource("6_r213c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0.2, 51.5)
+collision_mask = 0
+metadata/lb_prop_tag = "stool"
+
+[node name="table_set_0_Lead_table" type="StaticBody3D" parent="Props/Generated/P0_Room_1" unique_id=1536363897 instance=ExtResource("5_3scpy")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15, 0.2, 56)
+collision_mask = 0
+metadata/lb_prop_tag = "table"
+
+[node name="table_set_0_0_stool" type="StaticBody3D" parent="Props/Generated/P0_Room_1" unique_id=1396263045 instance=ExtResource("6_r213c")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.5, 0.2, 56.5)
+collision_mask = 0
+metadata/lb_prop_tag = "stool"
+
+[node name="table_set_0_1_stool" type="StaticBody3D" parent="Props/Generated/P0_Room_1" unique_id=2074597912 instance=ExtResource("6_r213c")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.5, 0.2, 57.5)
+collision_mask = 0
+metadata/lb_prop_tag = "stool"
+
+[node name="table_set_1_Lead_table" type="StaticBody3D" parent="Props/Generated/P0_Room_1" unique_id=2098152183 instance=ExtResource("5_3scpy")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13, 0.2, 55)
+collision_mask = 0
+metadata/lb_prop_tag = "table"
+
+[node name="table_set_1_0_stool" type="StaticBody3D" parent="Props/Generated/P0_Room_1" unique_id=1804402632 instance=ExtResource("6_r213c")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.5, 0.2, 53.5)
+collision_mask = 0
+metadata/lb_prop_tag = "stool"
+
+[node name="table_set_1_1_stool" type="StaticBody3D" parent="Props/Generated/P0_Room_1" unique_id=1235212656 instance=ExtResource("6_r213c")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.5, 0.2, 53.5)
+collision_mask = 0
+metadata/lb_prop_tag = "stool"
+
+[node name="table_set_2_Lead_table" type="StaticBody3D" parent="Props/Generated/P0_Room_1" unique_id=56718507 instance=ExtResource("5_3scpy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0.2, 54)
+collision_mask = 0
+metadata/lb_prop_tag = "table"
+
+[node name="table_set_2_0_stool" type="StaticBody3D" parent="Props/Generated/P0_Room_1" unique_id=1809092445 instance=ExtResource("6_r213c")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15.5, 0.2, 53.5)
+collision_mask = 0
+metadata/lb_prop_tag = "stool"
+
+[node name="table_set_2_1_stool" type="StaticBody3D" parent="Props/Generated/P0_Room_1" unique_id=1343583076 instance=ExtResource("6_r213c")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.5, 0.2, 54.5)
+collision_mask = 0
+metadata/lb_prop_tag = "stool"
+
+[node name="table_set_3_Lead_table" type="StaticBody3D" parent="Props/Generated/P0_Room_1" unique_id=896306086 instance=ExtResource("5_3scpy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0.2, 51)
+collision_mask = 0
+metadata/lb_prop_tag = "table"
+
+[node name="table_set_3_0_stool" type="StaticBody3D" parent="Props/Generated/P0_Room_1" unique_id=1073153463 instance=ExtResource("6_r213c")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.5, 0.2, 52.5)
+collision_mask = 0
+metadata/lb_prop_tag = "stool"
+
+[node name="table_set_3_1_stool" type="StaticBody3D" parent="Props/Generated/P0_Room_1" unique_id=1721094923 instance=ExtResource("6_r213c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0.2, 52.5)
+collision_mask = 0
+metadata/lb_prop_tag = "stool"
+
+[node name="Clutter_0_clutter" type="StaticBody3D" parent="Props/Generated/P0_Room_1" unique_id=1148264376 instance=ExtResource("6_r213c")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15.5, 0.2, 54.5)
+collision_mask = 0
+metadata/lb_prop_tag = "clutter"
+
+[node name="Condition_0_debris" type="StaticBody3D" parent="Props/Generated/P0_Room_1" unique_id=1888929223 instance=ExtResource("8_78xuk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15.5, 0.2, 62.5)
+collision_mask = 0
+metadata/lb_prop_tag = "debris"
+
+[node name="Condition_1_debris" type="StaticBody3D" parent="Props/Generated/P0_Room_1" unique_id=1631905433 instance=ExtResource("8_78xuk")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 16.5, 0.2, 63.5)
+collision_mask = 0
+metadata/lb_prop_tag = "debris"
+
+[node name="P1_Room_0" type="Node3D" parent="Props/Generated" unique_id=1973327095]
+metadata/lb_unit_id = "P1_Room_0"
+
+[node name="Anchor_table" type="StaticBody3D" parent="Props/Generated/P1_Room_0" unique_id=1820310583 instance=ExtResource("5_3scpy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94, 0.2, 17)
+collision_mask = 0
+metadata/lb_prop_tag = "table"
+
+[node name="Anchor_0_storage" type="StaticBody3D" parent="Props/Generated/P1_Room_0" unique_id=2132904939 instance=ExtResource("6_r213c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.5, 0.2, 16.5)
+collision_mask = 0
+metadata/lb_prop_tag = "storage"
+
+[node name="Anchor_1_brazier" type="StaticBody3D" parent="Props/Generated/P1_Room_0" unique_id=1504532666 instance=ExtResource("7_qs5ya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.5, 0.2, 16.5)
+collision_mask = 0
+metadata/lb_prop_tag = "brazier"
+
+[node name="storage_nook_0_Lead_storage" type="StaticBody3D" parent="Props/Generated/P1_Room_0" unique_id=2082109873 instance=ExtResource("6_r213c")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99.5, 0.2, 26.5)
+collision_mask = 0
+metadata/lb_prop_tag = "storage"
+
+[node name="storage_nook_0_0_clutter" type="StaticBody3D" parent="Props/Generated/P1_Room_0" unique_id=48435935 instance=ExtResource("6_r213c")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99.5, 0.2, 28.5)
+collision_mask = 0
+metadata/lb_prop_tag = "clutter"
+
+[node name="Clutter_0_clutter" type="StaticBody3D" parent="Props/Generated/P1_Room_0" unique_id=256855527 instance=ExtResource("6_r213c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.5, 0.2, 16.5)
+collision_mask = 0
+metadata/lb_prop_tag = "clutter"
+
+[node name="Condition_0_debris" type="StaticBody3D" parent="Props/Generated/P1_Room_0" unique_id=358794087 instance=ExtResource("8_78xuk")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 98.5, 0.2, 21.5)
+collision_mask = 0
+metadata/lb_prop_tag = "debris"
+
+[node name="Condition_1_debris" type="StaticBody3D" parent="Props/Generated/P1_Room_0" unique_id=607618471 instance=ExtResource("8_78xuk")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 98.5, 0.2, 22.5)
+collision_mask = 0
+metadata/lb_prop_tag = "debris"
+
+[node name="P1_Room_1" type="Node3D" parent="Props/Generated" unique_id=764708586]
+metadata/lb_unit_id = "P1_Room_1"
+
+[node name="Anchor_altar" type="StaticBody3D" parent="Props/Generated/P1_Room_1" unique_id=1650913669 instance=ExtResource("5_3scpy")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 73, 0.2, 48)
+collision_mask = 0
+metadata/lb_prop_tag = "altar"
+
+[node name="Anchor_0_pillar" type="StaticBody3D" parent="Props/Generated/P1_Room_1" unique_id=409052237 instance=ExtResource("7_qs5ya")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 75.5, 0.2, 45.5)
+collision_mask = 0
+metadata/lb_prop_tag = "pillar"
+
+[node name="Anchor_1_pillar" type="StaticBody3D" parent="Props/Generated/P1_Room_1" unique_id=1417381495 instance=ExtResource("7_qs5ya")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.5, 0.2, 47.5)
+collision_mask = 0
+metadata/lb_prop_tag = "pillar"
+
+[node name="Anchor_2_brazier" type="StaticBody3D" parent="Props/Generated/P1_Room_1" unique_id=360622003 instance=ExtResource("7_qs5ya")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 76.5, 0.2, 46.5)
+collision_mask = 0
+metadata/lb_prop_tag = "brazier"
+
+[node name="Clutter_0_clutter" type="StaticBody3D" parent="Props/Generated/P1_Room_1" unique_id=1464450921 instance=ExtResource("6_r213c")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 72.5, 0.2, 51.5)
+collision_mask = 0
+metadata/lb_prop_tag = "clutter"
+
+[node name="Condition_0_debris" type="StaticBody3D" parent="Props/Generated/P1_Room_1" unique_id=1903729464 instance=ExtResource("8_78xuk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.5, 0.2, 42.5)
+collision_mask = 0
+metadata/lb_prop_tag = "debris"
+
+[node name="Condition_1_debris" type="StaticBody3D" parent="Props/Generated/P1_Room_1" unique_id=1005580200 instance=ExtResource("8_78xuk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.5, 0.2, 41.5)
+collision_mask = 0
+metadata/lb_prop_tag = "debris"
+
+[node name="P1_Room_2" type="Node3D" parent="Props/Generated" unique_id=1755383549]
+metadata/lb_unit_id = "P1_Room_2"
+
+[node name="Anchor_altar" type="StaticBody3D" parent="Props/Generated/P1_Room_2" unique_id=1506102559 instance=ExtResource("5_3scpy")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 91, 0.2, 71)
+collision_mask = 0
+metadata/lb_prop_tag = "altar"
+
+[node name="Anchor_0_pillar" type="StaticBody3D" parent="Props/Generated/P1_Room_2" unique_id=2145782956 instance=ExtResource("7_qs5ya")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 87.5, 0.2, 70.5)
+collision_mask = 0
+metadata/lb_prop_tag = "pillar"
+
+[node name="Anchor_1_pillar" type="StaticBody3D" parent="Props/Generated/P1_Room_2" unique_id=926939364 instance=ExtResource("7_qs5ya")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 89.5, 0.2, 70.5)
+collision_mask = 0
+metadata/lb_prop_tag = "pillar"
+
+[node name="Anchor_2_brazier" type="StaticBody3D" parent="Props/Generated/P1_Room_2" unique_id=1135781653 instance=ExtResource("7_qs5ya")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 90.5, 0.2, 69.5)
+collision_mask = 0
+metadata/lb_prop_tag = "brazier"
+
+[node name="Clutter_0_clutter" type="StaticBody3D" parent="Props/Generated/P1_Room_2" unique_id=1614120599 instance=ExtResource("6_r213c")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 91.5, 0.2, 74.5)
+collision_mask = 0
+metadata/lb_prop_tag = "clutter"
+
+[node name="Condition_0_debris" type="StaticBody3D" parent="Props/Generated/P1_Room_2" unique_id=2096494077 instance=ExtResource("8_78xuk")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 90.5, 0.2, 74.5)
+collision_mask = 0
+metadata/lb_prop_tag = "debris"
+
+[node name="P2_Room_0" type="Node3D" parent="Props/Generated" unique_id=1305307941]
+metadata/lb_unit_id = "P2_Room_0"
+
+[node name="Anchor_table" type="StaticBody3D" parent="Props/Generated/P2_Room_0" unique_id=1589469695 instance=ExtResource("5_3scpy")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 27, 0.2, 135)
+collision_mask = 0
+metadata/lb_prop_tag = "table"
+
+[node name="Anchor_0_storage" type="StaticBody3D" parent="Props/Generated/P2_Room_0" unique_id=481714405 instance=ExtResource("6_r213c")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 28.5, 0.2, 133.5)
+collision_mask = 0
+metadata/lb_prop_tag = "storage"
+
+[node name="Anchor_1_brazier" type="StaticBody3D" parent="Props/Generated/P2_Room_0" unique_id=1219867971 instance=ExtResource("7_qs5ya")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 26.5, 0.2, 133.5)
+collision_mask = 0
+metadata/lb_prop_tag = "brazier"
+
+[node name="storage_nook_0_Lead_storage" type="StaticBody3D" parent="Props/Generated/P2_Room_0" unique_id=1228657147 instance=ExtResource("6_r213c")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 31.5, 0.2, 134.5)
+collision_mask = 0
+metadata/lb_prop_tag = "storage"
+
+[node name="storage_nook_0_0_clutter" type="StaticBody3D" parent="Props/Generated/P2_Room_0" unique_id=848808087 instance=ExtResource("6_r213c")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 31.5, 0.2, 133.5)
+collision_mask = 0
+metadata/lb_prop_tag = "clutter"
+
+[node name="Clutter_0_clutter" type="StaticBody3D" parent="Props/Generated/P2_Room_0" unique_id=807017970 instance=ExtResource("6_r213c")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 16.5, 0.2, 128.5)
+collision_mask = 0
+metadata/lb_prop_tag = "clutter"
+
+[node name="Condition_0_debris" type="StaticBody3D" parent="Props/Generated/P2_Room_0" unique_id=2061420566 instance=ExtResource("8_78xuk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5, 0.2, 125.5)
+collision_mask = 0
+metadata/lb_prop_tag = "debris"
+
+[node name="P2_Room_1" type="Node3D" parent="Props/Generated" unique_id=1805227000]
+metadata/lb_unit_id = "P2_Room_1"
+
+[node name="Anchor_bed" type="StaticBody3D" parent="Props/Generated/P2_Room_1" unique_id=179150838 instance=ExtResource("5_3scpy")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 41, 0.2, 133)
+collision_mask = 0
+metadata/lb_prop_tag = "bed"
+
+[node name="Anchor_0_storage" type="StaticBody3D" parent="Props/Generated/P2_Room_1" unique_id=191860508 instance=ExtResource("6_r213c")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 40.5, 0.2, 134.5)
+collision_mask = 0
+metadata/lb_prop_tag = "storage"
+
+[node name="Anchor_1_clutter" type="StaticBody3D" parent="Props/Generated/P2_Room_1" unique_id=372808844 instance=ExtResource("6_r213c")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 42.5, 0.2, 133.5)
+collision_mask = 0
+metadata/lb_prop_tag = "clutter"
+
+[node name="Clutter_0_clutter" type="StaticBody3D" parent="Props/Generated/P2_Room_1" unique_id=1859279761 instance=ExtResource("6_r213c")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 46.5, 0.2, 135.5)
+collision_mask = 0
+metadata/lb_prop_tag = "clutter"
+
+[node name="P2_Room_2" type="Node3D" parent="Props/Generated" unique_id=1989914667]
+metadata/lb_unit_id = "P2_Room_2"
+
+[node name="Anchor_forge" type="StaticBody3D" parent="Props/Generated/P2_Room_2" unique_id=522767692 instance=ExtResource("5_3scpy")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 31, 0.2, 154)
+collision_mask = 0
+metadata/lb_prop_tag = "forge"
+
+[node name="Anchor_0_anvil" type="StaticBody3D" parent="Props/Generated/P2_Room_2" unique_id=1825609211 instance=ExtResource("6_r213c")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.5, 0.2, 152.5)
+collision_mask = 0
+metadata/lb_prop_tag = "anvil"
+
+[node name="Anchor_1_storage" type="StaticBody3D" parent="Props/Generated/P2_Room_2" unique_id=1848242751 instance=ExtResource("6_r213c")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 29.5, 0.2, 153.5)
+collision_mask = 0
+metadata/lb_prop_tag = "storage"
+
+[node name="storage_nook_0_Lead_storage" type="StaticBody3D" parent="Props/Generated/P2_Room_2" unique_id=1798761214 instance=ExtResource("6_r213c")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 31.5, 0.2, 148.5)
+collision_mask = 0
+metadata/lb_prop_tag = "storage"
+
+[node name="storage_nook_0_0_clutter" type="StaticBody3D" parent="Props/Generated/P2_Room_2" unique_id=651868956 instance=ExtResource("6_r213c")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 31.5, 0.2, 147.5)
+collision_mask = 0
+metadata/lb_prop_tag = "clutter"
+
+[node name="Clutter_0_clutter" type="StaticBody3D" parent="Props/Generated/P2_Room_2" unique_id=2008726682 instance=ExtResource("6_r213c")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 16.5, 0.2, 152.5)
+collision_mask = 0
+metadata/lb_prop_tag = "clutter"
+
+[node name="Clutter_1_clutter" type="StaticBody3D" parent="Props/Generated/P2_Room_2" unique_id=1754174541 instance=ExtResource("6_r213c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0.2, 140.5)
+collision_mask = 0
+metadata/lb_prop_tag = "clutter"
+
+[node name="Condition_0_debris" type="StaticBody3D" parent="Props/Generated/P2_Room_2" unique_id=728448360 instance=ExtResource("8_78xuk")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 22.5, 0.2, 152.5)
+collision_mask = 0
+metadata/lb_prop_tag = "debris"
+
+[node name="Condition_1_debris" type="StaticBody3D" parent="Props/Generated/P2_Room_2" unique_id=1301643704 instance=ExtResource("8_78xuk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20.5, 0.2, 150.5)
+collision_mask = 0
+metadata/lb_prop_tag = "debris"
+
+[node name="P2_Room_3" type="Node3D" parent="Props/Generated" unique_id=1007237299]
+metadata/lb_unit_id = "P2_Room_3"
+
+[node name="Anchor_counter" type="StaticBody3D" parent="Props/Generated/P2_Room_3" unique_id=1424119809 instance=ExtResource("5_3scpy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.2, 105)
+collision_mask = 0
+metadata/lb_prop_tag = "counter"
+
+[node name="Anchor_0_keg" type="StaticBody3D" parent="Props/Generated/P2_Room_3" unique_id=1313060573 instance=ExtResource("6_r213c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 0.2, 105.5)
+collision_mask = 0
+metadata/lb_prop_tag = "keg"
+
+[node name="Anchor_1_stool" type="StaticBody3D" parent="Props/Generated/P2_Room_3" unique_id=736380624 instance=ExtResource("6_r213c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 0.2, 104.5)
+collision_mask = 0
+metadata/lb_prop_tag = "stool"
+
+[node name="table_set_0_Lead_table" type="StaticBody3D" parent="Props/Generated/P2_Room_3" unique_id=1035493836 instance=ExtResource("5_3scpy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0.2, 107)
+collision_mask = 0
+metadata/lb_prop_tag = "table"
+
+[node name="table_set_0_0_stool" type="StaticBody3D" parent="Props/Generated/P2_Room_3" unique_id=1619566219 instance=ExtResource("6_r213c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.2, 105.5)
+collision_mask = 0
+metadata/lb_prop_tag = "stool"
+
+[node name="table_set_0_1_stool" type="StaticBody3D" parent="Props/Generated/P2_Room_3" unique_id=834148996 instance=ExtResource("6_r213c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 0.2, 106.5)
+collision_mask = 0
+metadata/lb_prop_tag = "stool"
+
+[node name="table_set_1_Lead_table" type="StaticBody3D" parent="Props/Generated/P2_Room_3" unique_id=803566643 instance=ExtResource("5_3scpy")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17, 0.2, 109)
+collision_mask = 0
+metadata/lb_prop_tag = "table"
+
+[node name="table_set_1_0_stool" type="StaticBody3D" parent="Props/Generated/P2_Room_3" unique_id=616297293 instance=ExtResource("6_r213c")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 19.5, 0.2, 108.5)
+collision_mask = 0
+metadata/lb_prop_tag = "stool"
+
+[node name="table_set_1_1_stool" type="StaticBody3D" parent="Props/Generated/P2_Room_3" unique_id=1897994997 instance=ExtResource("6_r213c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0.2, 107.5)
+collision_mask = 0
+metadata/lb_prop_tag = "stool"
+
+[node name="Clutter_0_clutter" type="StaticBody3D" parent="Props/Generated/P2_Room_3" unique_id=1383372659 instance=ExtResource("6_r213c")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 19.5, 0.2, 107.5)
+collision_mask = 0
+metadata/lb_prop_tag = "clutter"
+
+[node name="Condition_0_debris" type="StaticBody3D" parent="Props/Generated/P2_Room_3" unique_id=1620044214 instance=ExtResource("8_78xuk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 0.2, 107.5)
+collision_mask = 0
+metadata/lb_prop_tag = "debris"
+
+[node name="Gameplay" type="Node3D" parent="." unique_id=1746785535]
+
+[node name="Generated" type="Node3D" parent="Gameplay" unique_id=1742445572]
+
+[node name="POI_0_Plot" type="Node3D" parent="Gameplay/Generated" unique_id=121430867]
+metadata/lb_unit_id = "POI_0_Plot"
+
+[node name="Waypoint" type="Marker3D" parent="Gameplay/Generated/POI_0_Plot" unique_id=983073913]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0.2, 46)
+metadata/lb_role = "poi"
+metadata/lb_poi_archetype = "outpost"
+metadata/lb_seed = 896602295
+
+[node name="P0_Room_1" type="Node3D" parent="Gameplay/Generated" unique_id=177411665]
+metadata/lb_unit_id = "P0_Room_1"
+
+[node name="Objective" type="Marker3D" parent="Gameplay/Generated/P0_Room_1" unique_id=2027514079]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0.2, 58)
+metadata/lb_role = "objective"
+
+[node name="POI_1_Plot" type="Node3D" parent="Gameplay/Generated" unique_id=73876820]
+metadata/lb_unit_id = "POI_1_Plot"
+
+[node name="Waypoint" type="Marker3D" parent="Gameplay/Generated/POI_1_Plot" unique_id=1391775391]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94, 0.2, 46)
+metadata/lb_role = "poi"
+metadata/lb_poi_archetype = "ruin"
+metadata/lb_seed = 896602296
+
+[node name="P1_Room_1" type="Node3D" parent="Gameplay/Generated" unique_id=854526616]
+metadata/lb_unit_id = "P1_Room_1"
+
+[node name="Encounter" type="Marker3D" parent="Gameplay/Generated/P1_Room_1" unique_id=510671258]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 0.2, 50)
+metadata/lb_role = "encounter"
+metadata/lb_room_type = "shrine"
+
+[node name="P1_Room_2" type="Node3D" parent="Gameplay/Generated" unique_id=270161479]
+metadata/lb_unit_id = "P1_Room_2"
+
+[node name="Objective" type="Marker3D" parent="Gameplay/Generated/P1_Room_2" unique_id=1857228453]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 0.2, 74)
+metadata/lb_role = "objective"
+
+[node name="POI_2_Plot" type="Node3D" parent="Gameplay/Generated" unique_id=1839207424]
+metadata/lb_unit_id = "POI_2_Plot"
+
+[node name="Waypoint" type="Marker3D" parent="Gameplay/Generated/POI_2_Plot" unique_id=816149932]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0.2, 134)
+metadata/lb_role = "poi"
+metadata/lb_poi_archetype = "outpost"
+metadata/lb_seed = 896602297
+
+[node name="P2_Room_1" type="Node3D" parent="Gameplay/Generated" unique_id=492105209]
+metadata/lb_unit_id = "P2_Room_1"
+
+[node name="Objective" type="Marker3D" parent="Gameplay/Generated/P2_Room_1" unique_id=318635414]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0.2, 130)
+metadata/lb_role = "objective"
+
+[node name="P2_Room_2" type="Node3D" parent="Gameplay/Generated" unique_id=1040979969]
+metadata/lb_unit_id = "P2_Room_2"
+
+[node name="Cache" type="Marker3D" parent="Gameplay/Generated/P2_Room_2" unique_id=1745205529]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0.2, 146)
+metadata/lb_role = "cache"
+metadata/lb_room_type = "smithy"
+
+[node name="P2_Room_3" type="Node3D" parent="Gameplay/Generated" unique_id=1147205424]
+metadata/lb_unit_id = "P2_Room_3"
+
+[node name="Cache" type="Marker3D" parent="Gameplay/Generated/P2_Room_3" unique_id=1917096502]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0.2, 110)
+metadata/lb_role = "cache"
+metadata/lb_room_type = "tavern"
